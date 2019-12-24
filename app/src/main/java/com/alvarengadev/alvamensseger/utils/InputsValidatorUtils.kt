@@ -69,7 +69,7 @@ class InputsValidatorUtils(private val context: Context) {
             textInputLayoutPassword.requestFocus()
             false
         }else if(password.length < 6){
-            textInputLayoutPassword.error = this.context.getString(R.string.error_empty)
+            textInputLayoutPassword.error = this.context.getString(R.string.error_validate_password_length)
             textInputLayoutPassword.requestFocus()
             false
         }else if (!PASSWORD_PATTERN.matcher(password).matches()) {

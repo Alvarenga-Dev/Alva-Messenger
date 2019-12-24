@@ -4,11 +4,14 @@ import com.google.firebase.database.Exclude
 
 class User {
 
+    @get:Exclude
     var id:String = ""
+    @get:Exclude
+    var password:String = ""
+
     var firstName:String = ""
     var lastName:String = ""
     var email:String = ""
-    var password:String = ""
 
     constructor()
     constructor(firstName:String, lastName:String, email:String, password:String) {
