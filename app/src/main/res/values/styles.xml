@@ -1,0 +1,50 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:navigationBarColor">@color/lightGrey</item>
+        <item name="android:statusBarColor">@color/lightGrey</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:fontFamily">@font/montserrat_medium</item>
+    </style>
+
+    <style name="StyleTitles" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorTitles</item>
+        <item name="android:textSize">@dimen/text_size_title_smartphones</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="StyleDrawerText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorTitles</item>
+        <item name="android:textSize">@dimen/text_size_normal_smartphones</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="StyleTextInputLayout" parent="Widget.Design.TextInputLayout">
+        <item name="android:textColorHint">@color/colorTitles</item>
+        <item name="android:textSize">@dimen/text_size_big_smartphones</item>
+    </style>
+
+    <style name="StyleEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">@color/colorTitles</item>
+        <item name="android:backgroundTint">@color/colorTitles</item>
+        <item name="android:textSize">@dimen/text_size_normal_smartphones</item>
+    </style>
+
+    <style name="StyleButtons" parent="TextAppearance.AppCompat.Button">
+        <item name="android:background">@drawable/bg_btn</item>
+        <item name="android:drawablePadding">@dimen/padding_icon_button</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/colorTitles</item>
+        <item name="android:textSize">@dimen/btn_text</item>
+        <item name="android:paddingTop">@dimen/padding_button_horizontal</item>
+        <item name="android:paddingBottom">@dimen/padding_button_horizontal</item>
+        <item name="android:paddingRight">@dimen/padding_button_vertical</item>
+        <item name="android:paddingLeft">@dimen/padding_button_vertical</item>
+    </style>
+
+</resources>

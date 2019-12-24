@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "679320156966",
+    "firebase_url": "https://alva-messenger.firebaseio.com",
+    "project_id": "alva-messenger",
+    "storage_bucket": "alva-messenger.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679320156966:android:d5f23ac9e127b217d19fe7",
+        "android_client_info": {
+          "package_name": "com.alvarengadev.alvamensseger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "679320156966-qet3hk0g82df7p0o86un6iqtabek3k6k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.alvarengadev.alvamensseger",
+            "certificate_hash": "f575beaa18279ca65318a4eaecf9917020184ff7"
+          }
+        },
+        {
+          "client_id": "679320156966-mqaaolgqu4nn9im5c3698odqhlo5smcl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7o_r8hVppJzcMS5_rmg6UvKZK-qTCAPE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "679320156966-mqaaolgqu4nn9im5c3698odqhlo5smcl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

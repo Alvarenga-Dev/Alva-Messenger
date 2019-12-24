@@ -1,0 +1,46 @@
+<resources>
+
+    <!-- Default -->
+    <string name="app_name">Alva Mensseger</string>
+    <string name="navigation_drawer_open">Abrir menu</string>
+    <string name="navigation_drawer_close">Fechar menu</string>
+    <!-- Inputs Strings -->
+    <string name="error_empty">Campo Vazio!</string>
+    <string name="error_validate_email">Ops! Algo de errado com o seu email.</string>
+    <string name="error_validate_password">Ops! Sua senha precisa de letras maúsculas, minúsculas e números.</string>
+    <string name="error_validate_password_length">Sua senha precisa ter mais de 6 dígitos!</string>
+    <string name="error_validate_password_confirm">Senhas diferentes!</string>
+    <string name="error_validate_firstname_and_lastname">Escreva corretamente!</string>
+    <!-- Splash Screen -->
+    <string name="logo_description">Logotipo da Alva Mensseger</string>
+    <!-- Sign in -->
+    <string name="text_sign_in">Entrar</string>
+    <string name="button_sign_in_with_mail">Entrar com o email</string>
+    <string name="text_or">ou</string>
+    <string name="button_sign_in_with_google">Entrar com google</string>
+    <string name="button_create_user">Não tem conta ainda? Criar conta agora</string>
+    <!-- Login -->
+    <string name="ic_login_description">Ícone representativo de um usuário voltando a logar no aplicativo da Alva Mensseger!</string>
+    <string name="text_login_welcome_app">Bem-vindo(a) de volta!</string>
+    <string name="label_login_email">Email</string>
+    <string name="label_login_password">Senha</string>
+    <string name="button_login_sign_in">Entrar</string>
+    <!-- Sign up -->
+    <string name="ic_sign_up_description">Ícone representativo do potencial de conexão de usuários de todo o mundo!</string>
+    <string name="text_sign_up_welcome_app">Cadastre-se e conecte-se com o mundo!</string>
+    <string name="label_section_user_info">Informações pessoais</string>
+    <string name="label_sign_up_first_name">Nome</string>
+    <string name="label_sign_up_last_name">Sobrenome</string>
+    <string name="label_section_account_info">Conta</string>
+    <string name="label_sign_up_email">Email</string>
+    <string name="label_sign_up_password">Senha</string>
+    <string name="label_sign_up_confirm_password">Confirme a senha</string>
+    <string name="button_sign_up">Cadastrar</string>
+    <!-- Home -->
+    <string name="menu_item_account">Conta</string>
+    <string name="menu_item_logout">Sair</string>
+    <!-- Home - chat -->
+    <string name="toolbar_title_chat">Conversas</string>
+    <!-- Home - friends-->
+
+</resources>

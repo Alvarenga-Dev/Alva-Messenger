@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayoutHome"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activitys.HomeActivity">
+
+    <include
+        layout="@layout/content_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationHome"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/lightGrey"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        app:headerLayout="@layout/header_drawer"
+        app:itemIconTint="@color/colorTitles"
+        app:itemTextAppearance="@style/StyleDrawerText"
+        app:itemTextColor="@color/colorTitles"
+        app:menu="@menu/menu_drawer">
+
+        <TextView
+            android:id="@+id/textDesignerBy"
+            style="@style/StyleDrawerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="48dp"
+            android:text="Designer by Lucas Alvarenga" />
+    </com.google.android.material.navigation.NavigationView>
+
+</androidx.drawerlayout.widget.DrawerLayout>

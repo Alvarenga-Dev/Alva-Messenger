@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Sizes -->
+    <dimen name="corners_default">10dp</dimen>
+    <dimen name="corners_big">45dp</dimen>
+    <!-- Fonts -->
+    <dimen name="text_size_title_smartphones">24sp</dimen>
+    <dimen name="text_size_small_smartphones">13sp</dimen>
+    <dimen name="text_size_normal_smartphones">14sp</dimen>
+    <dimen name="text_size_big_smartphones">18sp</dimen>
+    <dimen name="text_size_name_friend_smartphones">14sp</dimen>
+    <dimen name="text_size_last_msg_smartphones">11sp</dimen>
+    <!-- Buttons -->
+    <dimen name="btn_text">18sp</dimen>
+    <dimen name="padding_icon_button">16dp</dimen>
+    <dimen name="padding_button_horizontal">16dp</dimen>
+    <dimen name="padding_button_vertical">24dp</dimen>
+    <!-- Margins -->
+    <dimen name="margin_8dp">8dp</dimen>
+    <dimen name="margin_16dp">16dp</dimen>
+    <dimen name="margin_32dp">32dp</dimen>
+</resources>

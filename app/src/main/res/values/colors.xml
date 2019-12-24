@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#8000FF</color>
+    <color name="colorPrimaryDark">#0c0c0c</color>
+    <color name="colorAccent">#8000FF</color>
+    <color name="colorError">#DB0545</color>
+    <color name="colorTitles">#F1F1F1</color>
+    <color name="colorSubTitles">#D8F1F1F1</color>
+    <color name="colorText">#B3F1F1F1</color>
+
+    <!-- My colors -->
+    <color name="darkGrey">#0C0C0C</color>
+    <color name="lightGrey">#171717</color>
+    <color name="blue">#2723EF</color>
+    <color name="purple">#8000FF</color>
+</resources>
