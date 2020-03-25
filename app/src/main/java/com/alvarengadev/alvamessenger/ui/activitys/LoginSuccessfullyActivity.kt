@@ -1,8 +1,8 @@
-package com.alvarengadev.alvamensseger.ui.activitys
+package com.alvarengadev.alvamessenger.ui.activitys
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.alvarengadev.alvamensseger.R
+import com.alvarengadev.alvamessenger.R
 
 class LoginSuccessfullyActivity : AppCompatActivity() {
 

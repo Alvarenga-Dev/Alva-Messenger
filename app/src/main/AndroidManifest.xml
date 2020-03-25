@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.alvarengadev.alvamensseger">
+    package="com.alvarengadev.alvamessenger">
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.activitys.LoginSuccessfullyActivity"></activity>
+        <activity android:name=".ui.activitys.ProfileActivity"></activity>
+        <activity android:name=".ui.activitys.FriendsActivity" />
+        <activity android:name=".ui.activitys.LoginSuccessfullyActivity" />
         <activity android:name=".ui.activitys.SignUpActivity" />
         <activity android:name=".ui.activitys.LoginActivity" />
         <activity android:name=".ui.introscreens.SplashScreen">

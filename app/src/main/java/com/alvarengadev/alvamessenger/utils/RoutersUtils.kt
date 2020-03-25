@@ -1,4 +1,4 @@
-package com.alvarengadev.alvamensseger.utils
+package com.alvarengadev.alvamessenger.utils
 
 import android.content.Context
 import android.content.Intent

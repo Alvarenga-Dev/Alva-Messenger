@@ -1,14 +1,14 @@
-package com.alvarengadev.alvamensseger.ui.activitys
+package com.alvarengadev.alvamessenger.ui.activitys
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.View.*
-import com.alvarengadev.alvamensseger.R
-import com.alvarengadev.alvamensseger.models.User
-import com.alvarengadev.alvamensseger.providers.RegisterUser
-import com.alvarengadev.alvamensseger.utils.InputsValidatorUtils
-import com.alvarengadev.alvamensseger.utils.RoutersUtils
+import com.alvarengadev.alvamessenger.R
+import com.alvarengadev.alvamessenger.models.User
+import com.alvarengadev.alvamessenger.providers.UserActions
+import com.alvarengadev.alvamessenger.utils.InputsValidatorUtils
+import com.alvarengadev.alvamessenger.utils.RoutersUtils
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
@@ -22,14 +22,14 @@ class SignUpActivity : AppCompatActivity(), OnClickListener {
     }
 
     override fun onClick(view: View) {
-        if (validator()){
+        if (validator(view)){
             startActivity(RoutersUtils.router(applicationContext, HomeActivity::class.java))
         }else{
             Snackbar.make(view, "Preencha os campos corretamente!", Snackbar.LENGTH_SHORT).show()
         }
     }
 
-    private fun validator():Boolean {
+    private fun validator(view: View):Boolean {
 
         val firstName = inputSignUpFirstName.editText?.text.toString()
         val lastName = inputSignUpLastName.editText?.text.toString()
@@ -46,7 +46,7 @@ class SignUpActivity : AppCompatActivity(), OnClickListener {
             false
         }else {
             val user = User(firstName, lastName, email, password)
-            RegisterUser.register(applicationContext, user)
+            UserActions.register(view, user)
             true
         }
 

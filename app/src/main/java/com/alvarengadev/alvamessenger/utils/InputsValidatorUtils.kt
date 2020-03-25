@@ -1,8 +1,8 @@
-package com.alvarengadev.alvamensseger.utils
+package com.alvarengadev.alvamessenger.utils
 
 import android.content.Context
 import android.util.Patterns
-import com.alvarengadev.alvamensseger.R
+import com.alvarengadev.alvamessenger.R
 import com.google.android.material.textfield.TextInputLayout
 import java.util.regex.Pattern
 

@@ -1,4 +1,4 @@
-package com.alvarengadev.alvamensseger
+package com.alvarengadev.alvamessenger
 
 import org.junit.Test
 

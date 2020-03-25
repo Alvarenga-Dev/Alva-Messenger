@@ -26,8 +26,8 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            style="@style/StyleButtons"
             android:id="@+id/buttonSignInWithMail"
+            style="@style/StyleButtons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -36,6 +36,7 @@
             android:drawableStart="@drawable/ic_email"
             android:text="@string/button_sign_in_with_mail"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.523"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textTitlePageSignIn" />
 

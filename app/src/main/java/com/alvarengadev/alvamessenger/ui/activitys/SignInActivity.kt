@@ -1,4 +1,4 @@
-package com.alvarengadev.alvamensseger.ui.activitys
+package com.alvarengadev.alvamessenger.ui.activitys
 
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.StyleSpan
-import com.alvarengadev.alvamensseger.R
-import com.alvarengadev.alvamensseger.utils.RoutersUtils
+import com.alvarengadev.alvamessenger.R
+import com.alvarengadev.alvamessenger.utils.RoutersUtils
 import kotlinx.android.synthetic.main.activity_sign_in.*
 
 class SignInActivity : AppCompatActivity(){

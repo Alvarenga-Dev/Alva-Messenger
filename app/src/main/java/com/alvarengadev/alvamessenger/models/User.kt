@@ -1,17 +1,18 @@
-package com.alvarengadev.alvamensseger.models
+package com.alvarengadev.alvamessenger.models
 
 import com.google.firebase.database.Exclude
 
 class User {
 
+
+
     @get:Exclude
     var id:String = ""
-    @get:Exclude
-    var password:String = ""
-
     var firstName:String = ""
     var lastName:String = ""
     var email:String = ""
+    @get:Exclude
+    var password:String = ""
 
     constructor()
     constructor(firstName:String, lastName:String, email:String, password:String) {
@@ -20,5 +21,7 @@ class User {
         this.email = email
         this.password = password
     }
+
+
 
 }

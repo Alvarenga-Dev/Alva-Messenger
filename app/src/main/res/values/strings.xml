@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Default -->
-    <string name="app_name">Alva Mensseger</string>
+    <string name="app_name">Alva Messenger</string>
     <string name="navigation_drawer_open">Abrir menu</string>
     <string name="navigation_drawer_close">Fechar menu</string>
     <!-- Inputs Strings -->
@@ -39,8 +39,9 @@
     <!-- Home -->
     <string name="menu_item_account">Conta</string>
     <string name="menu_item_logout">Sair</string>
-    <!-- Home - chat -->
+    <!-- Home - chats -->
     <string name="toolbar_title_chat">Conversas</string>
-    <!-- Home - friends-->
+    <!-- Friends -->
+    <string name="toolbar_title_friends">Meus Amigos</string>
 
 </resources>
