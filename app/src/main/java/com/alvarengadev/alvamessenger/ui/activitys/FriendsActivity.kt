@@ -13,11 +13,11 @@ class FriendsActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_friends)
 
-        initToolbar();
+        initToolbar()
     }
 
     private fun initToolbar() {
-        toolbarFriends.title = "";
+        toolbarFriends.title = ""
         setSupportActionBar(toolbarFriends)
         toolbarFriends.setNavigationIcon(R.drawable.ic_arrow_back)
         toolbarFriends.setNavigationOnClickListener(this)
