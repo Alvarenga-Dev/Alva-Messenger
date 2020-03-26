@@ -7,7 +7,7 @@ import com.alvarengadev.alvamessenger.R
 import com.alvarengadev.alvamessenger.presenters.SettingsFirebase
 import com.alvarengadev.alvamessenger.ui.activitys.HomeActivity
 import com.alvarengadev.alvamessenger.ui.activitys.SignInActivity
-import com.alvarengadev.alvamessenger.utils.RoutersUtils
+import com.alvarengadev.alvamessenger.utils.RoutesUtils
 
 class SplashScreen : AppCompatActivity() {
 
@@ -24,9 +24,9 @@ class SplashScreen : AppCompatActivity() {
         val handler = Handler()
 
         val intent = if(auth.currentUser != null) {
-            RoutersUtils.router(applicationContext, HomeActivity::class.java)
+            RoutesUtils.routes(applicationContext, HomeActivity::class.java)
         } else {
-            RoutersUtils.router(applicationContext, SignInActivity::class.java)
+            RoutesUtils.routes(applicationContext, SignInActivity::class.java)
         }
 
         handler.postDelayed({

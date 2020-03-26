@@ -8,7 +8,7 @@ import com.alvarengadev.alvamessenger.R
 import com.alvarengadev.alvamessenger.models.User
 import com.alvarengadev.alvamessenger.providers.UserActions
 import com.alvarengadev.alvamessenger.utils.InputsValidatorUtils
-import com.alvarengadev.alvamessenger.utils.RoutersUtils
+import com.alvarengadev.alvamessenger.utils.RoutesUtils
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
@@ -23,7 +23,7 @@ class SignUpActivity : AppCompatActivity(), OnClickListener {
 
     override fun onClick(view: View) {
         if (validator(view)){
-            startActivity(RoutersUtils.router(applicationContext, HomeActivity::class.java))
+            startActivity(RoutesUtils.routes(applicationContext, HomeActivity::class.java))
             finish()
         }else{
             Snackbar.make(view, "Preencha os campos corretamente!", Snackbar.LENGTH_SHORT).show()

@@ -7,7 +7,7 @@ import com.alvarengadev.alvamessenger.R
 import com.alvarengadev.alvamessenger.models.User
 import com.alvarengadev.alvamessenger.presenters.SettingsFirebase
 import com.alvarengadev.alvamessenger.utils.InputsValidatorUtils
-import com.alvarengadev.alvamessenger.utils.RoutersUtils
+import com.alvarengadev.alvamessenger.utils.RoutesUtils
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -45,7 +45,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
         val auth = SettingsFirebase.authReference
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                startActivity(RoutersUtils.router(applicationContext, HomeActivity::class.java))
+                startActivity(RoutesUtils.routes(applicationContext, HomeActivity::class.java))
                 finish()
             } else {
                 Snackbar.make(view, "Email ou Senha inválidos! :(", Snackbar.LENGTH_SHORT).show()

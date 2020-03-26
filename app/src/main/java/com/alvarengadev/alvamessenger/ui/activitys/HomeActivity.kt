@@ -7,10 +7,8 @@ import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import com.alvarengadev.alvamessenger.R
-import com.alvarengadev.alvamessenger.presenters.SettingsFirebase
 import com.alvarengadev.alvamessenger.providers.UserActions
-import com.alvarengadev.alvamessenger.utils.RoutersUtils
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.alvarengadev.alvamessenger.utils.RoutesUtils
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.content_home.*
@@ -51,19 +49,19 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener,
     }
 
     override fun onClick(view: View) {
-        startActivity(RoutersUtils.router(applicationContext, FriendsActivity::class.java))
+        startActivity(RoutesUtils.routes(applicationContext, FriendsActivity::class.java))
     }
 
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
         //Ponto a ser refatorado, usar if / else ou when é triste :p (Programação Procedural -> POO)
         return when (menuItem.itemId) {
             R.id.menuProfile -> {
-                startActivity(RoutersUtils.router(applicationContext, ProfileActivity::class.java))
+                startActivity(RoutesUtils.routes(applicationContext, ProfileActivity::class.java))
                 true
             }
             R.id.menuLogout -> {
                 UserActions.signOut()
-                startActivity(RoutersUtils.router(applicationContext, SignInActivity::class.java))
+                startActivity(RoutesUtils.routes(applicationContext, SignInActivity::class.java))
                 finish()
                 true
             }

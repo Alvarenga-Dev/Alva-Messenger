@@ -3,9 +3,9 @@ package com.alvarengadev.alvamessenger.utils
 import android.content.Context
 import android.content.Intent
 
-abstract class RoutersUtils {
+abstract class RoutesUtils {
     companion object{
-        fun router(context: Context?, destiny: Class<*>?): Intent {
+        fun routes(context: Context?, destiny: Class<*>?): Intent {
             return Intent(context, destiny)
         }
     }

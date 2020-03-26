@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.alvarengadev.alvamessenger.R
-import com.alvarengadev.alvamessenger.utils.RoutersUtils
 import kotlinx.android.synthetic.main.activity_friends.*
 
 class FriendsActivity : AppCompatActivity(), View.OnClickListener {
@@ -24,7 +23,6 @@ class FriendsActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun routerBackHome() {
-        startActivity(RoutersUtils.router(applicationContext, HomeActivity::class.java))
         finish()
     }
 

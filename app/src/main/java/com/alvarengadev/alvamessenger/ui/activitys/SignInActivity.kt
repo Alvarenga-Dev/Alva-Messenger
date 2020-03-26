@@ -7,7 +7,7 @@ import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.StyleSpan
 import com.alvarengadev.alvamessenger.R
-import com.alvarengadev.alvamessenger.utils.RoutersUtils
+import com.alvarengadev.alvamessenger.utils.RoutesUtils
 import kotlinx.android.synthetic.main.activity_sign_in.*
 
 class SignInActivity : AppCompatActivity(){
@@ -26,7 +26,7 @@ class SignInActivity : AppCompatActivity(){
     }
 
     private fun startRouter(destiny: Class<*>){
-        startActivity(RoutersUtils.router(applicationContext, destiny))
+        startActivity(RoutesUtils.routes(applicationContext, destiny))
     }
 
     private fun stringCustomSignUp():SpannableString {
