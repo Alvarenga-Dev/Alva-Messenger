@@ -24,6 +24,7 @@ class SignUpActivity : AppCompatActivity(), OnClickListener {
     override fun onClick(view: View) {
         if (validator(view)){
             startActivity(RoutersUtils.router(applicationContext, HomeActivity::class.java))
+            finish()
         }else{
             Snackbar.make(view, "Preencha os campos corretamente!", Snackbar.LENGTH_SHORT).show()
         }

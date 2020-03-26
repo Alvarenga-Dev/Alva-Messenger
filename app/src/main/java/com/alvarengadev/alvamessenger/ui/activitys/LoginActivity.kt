@@ -46,6 +46,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 startActivity(RoutersUtils.router(applicationContext, HomeActivity::class.java))
+                finish()
             } else {
                 Snackbar.make(view, "Email ou Senha inválidos! :(", Snackbar.LENGTH_SHORT).show()
             }
