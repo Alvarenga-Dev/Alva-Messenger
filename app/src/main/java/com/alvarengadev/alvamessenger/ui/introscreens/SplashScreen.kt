@@ -15,6 +15,10 @@ class SplashScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.splash_screen)
 
+        checkLogin()
+    }
+
+    fun checkLogin() {
         val auth = SettingsFirebase.authReference
 
         val handler = Handler()
@@ -29,6 +33,5 @@ class SplashScreen : AppCompatActivity() {
             startActivity(intent)
             finish()
         }, 1200)
-
     }
 }
