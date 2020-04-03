@@ -1,4 +1,4 @@
-package com.alvarengadev.alvamessenger.ui.activitys
+package com.alvarengadev.alvamessenger.view.activitys
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -25,8 +25,6 @@ class SignUpActivity : AppCompatActivity(), OnClickListener {
         if (validator(view)){
             startActivity(RoutesUtils.routes(applicationContext, HomeActivity::class.java))
             finish()
-        }else{
-            Snackbar.make(view, "Preencha os campos corretamente!", Snackbar.LENGTH_SHORT).show()
         }
     }
 
@@ -44,10 +42,12 @@ class SignUpActivity : AppCompatActivity(), OnClickListener {
         val isValidatorPassword = inputsValidatorUtils.validatePassword(inputSignUpPassword, password)
 
         return if (!isValidatorFirstName || !isValidatorLastName || !isValidatorEmail || !isValidatorPassword){
+            Snackbar.make(view, "Preencha os campos corretamente!", Snackbar.LENGTH_SHORT).show()
             false
         }else {
             val user = User(firstName, lastName, email, password)
-            UserActions.register(view, user)
+            val userActions = UserActions(applicationContext)
+            userActions.register(view, user)
             true
         }
 

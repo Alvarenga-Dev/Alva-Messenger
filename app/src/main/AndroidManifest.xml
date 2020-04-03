@@ -11,20 +11,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.activitys.ProfileActivity"></activity>
-        <activity android:name=".ui.activitys.FriendsActivity" />
-        <activity android:name=".ui.activitys.LoginSuccessfullyActivity" />
-        <activity android:name=".ui.activitys.SignUpActivity" />
-        <activity android:name=".ui.activitys.LoginActivity" />
-        <activity android:name=".ui.introscreens.SplashScreen">
+        <activity android:name=".view.activitys.ChatActivity"/>
+        <activity android:name=".view.activitys.ProfileActivity" />
+        <activity android:name=".view.activitys.FriendsActivity" />
+        <activity android:name=".view.activitys.LoginSuccessfullyActivity" />
+        <activity android:name=".view.activitys.SignUpActivity" />
+        <activity android:name=".view.activitys.LoginActivity" />
+        <activity android:name=".view.introscreens.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activitys.SignInActivity" />
-        <activity android:name=".ui.activitys.HomeActivity" />
+        <activity android:name=".view.activitys.SignInActivity" />
+        <activity android:name=".view.activitys.HomeActivity" />
     </application>
 
 </manifest>

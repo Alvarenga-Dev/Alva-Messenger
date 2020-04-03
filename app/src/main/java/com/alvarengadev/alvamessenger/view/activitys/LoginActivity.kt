@@ -1,11 +1,11 @@
-package com.alvarengadev.alvamessenger.ui.activitys
+package com.alvarengadev.alvamessenger.view.activitys
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.alvarengadev.alvamessenger.R
 import com.alvarengadev.alvamessenger.models.User
-import com.alvarengadev.alvamessenger.presenters.SettingsFirebase
+import com.alvarengadev.alvamessenger.providers.UserActions
 import com.alvarengadev.alvamessenger.utils.InputsValidatorUtils
 import com.alvarengadev.alvamessenger.utils.RoutesUtils
 import com.google.android.material.snackbar.Snackbar
@@ -18,12 +18,17 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
         setContentView(R.layout.activity_login)
 
         buttonLogin.setOnClickListener(this)
-
     }
 
 
     override fun onClick(view: View) {
+        if (validator(view)){
+            startActivity(RoutesUtils.routes(applicationContext, HomeActivity::class.java))
+            finish()
+        }
+    }
 
+    private fun validator(view: View): Boolean {
         val email = inputLoginEmail.editText?.text.toString();
         val password = inputLoginPasword.editText?.text.toString();
 
@@ -31,26 +36,16 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
         val isValidatorEmail = inputsValidatorUtils.validateEmail(inputLoginEmail, email)
         val isValidatorPassword = inputsValidatorUtils.validatePassword(inputLoginPasword, password)
 
-        if( isValidatorEmail && isValidatorPassword ) {
-            val user = User();
+        return if( !isValidatorEmail && !isValidatorPassword ) {
+            Snackbar.make(view, "Preencha os campos corretamente!", Snackbar.LENGTH_SHORT).show()
+            false
+        } else {
+            val user = User()
             user.email = email
             user.password = password
-            validatorLogin(view, user.email, user.password)
+            val userActions = UserActions(applicationContext)
+            userActions.validatorLogin(view, user)
+            true
         }
-
-    }
-
-    private fun validatorLogin(view: View, email: String, password: String) {
-
-        val auth = SettingsFirebase.authReference
-        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                startActivity(RoutesUtils.routes(applicationContext, HomeActivity::class.java))
-                finish()
-            } else {
-                Snackbar.make(view, "Email ou Senha inválidos! :(", Snackbar.LENGTH_SHORT).show()
-            }
-        }
-
     }
 }
