@@ -16,7 +16,7 @@ class InputsValidatorUtils(private val context: Context) {
             Pattern.compile("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).{6,}\$")
     }
 
-    fun validateFirstName(textInputLayoutFirstName: TextInputLayout, firstName: String):Boolean{
+    fun validateFirstName(textInputLayoutFirstName: TextInputLayout, firstName: String): Boolean{
         return if(firstName.trim().isEmpty()){
             textInputLayoutFirstName.error = this.context.getString(R.string.error_empty)
             textInputLayoutFirstName.requestFocus()
@@ -32,7 +32,7 @@ class InputsValidatorUtils(private val context: Context) {
 
     }
 
-    fun validateLastName(textInputLayoutLastName: TextInputLayout, lastName: String):Boolean{
+    fun validateLastName(textInputLayoutLastName: TextInputLayout, lastName: String): Boolean{
         return if(lastName.trim().isEmpty()){
             textInputLayoutLastName.error = this.context.getString(R.string.error_empty)
             textInputLayoutLastName.requestFocus()
@@ -48,7 +48,7 @@ class InputsValidatorUtils(private val context: Context) {
 
     }
 
-    fun validateEmail(textInputLayoutEmail: TextInputLayout, email: String):Boolean{
+    fun validateEmail(textInputLayoutEmail: TextInputLayout, email: String): Boolean{
         return if(email.trim().isEmpty()){
             textInputLayoutEmail.error = this.context.getString(R.string.error_empty)
             textInputLayoutEmail.requestFocus()
@@ -63,7 +63,7 @@ class InputsValidatorUtils(private val context: Context) {
         }
     }
 
-    fun validatePassword(textInputLayoutPassword: TextInputLayout, password: String):Boolean{
+    fun validatePassword(textInputLayoutPassword: TextInputLayout, password: String): Boolean{
         return if(password.trim().isEmpty()){
             textInputLayoutPassword.error = this.context.getString(R.string.error_empty)
             textInputLayoutPassword.requestFocus()
