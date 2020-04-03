@@ -1,12 +1,12 @@
-package com.alvarengadev.alvamessenger.ui.introscreens
+package com.alvarengadev.alvamessenger.view.introscreens
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.alvarengadev.alvamessenger.R
 import com.alvarengadev.alvamessenger.presenters.SettingsFirebase
-import com.alvarengadev.alvamessenger.ui.activitys.HomeActivity
-import com.alvarengadev.alvamessenger.ui.activitys.SignInActivity
+import com.alvarengadev.alvamessenger.view.activitys.HomeActivity
+import com.alvarengadev.alvamessenger.view.activitys.SignInActivity
 import com.alvarengadev.alvamessenger.utils.RoutesUtils
 
 class SplashScreen : AppCompatActivity() {

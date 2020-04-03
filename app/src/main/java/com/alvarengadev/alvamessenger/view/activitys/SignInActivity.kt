@@ -1,4 +1,4 @@
-package com.alvarengadev.alvamessenger.ui.activitys
+package com.alvarengadev.alvamessenger.view.activitys
 
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
