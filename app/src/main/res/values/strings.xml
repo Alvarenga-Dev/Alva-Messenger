@@ -6,7 +6,7 @@
     <string name="navigation_drawer_close">Fechar menu</string>
     <!-- Inputs Strings -->
     <string name="error_empty">Campo Vazio!</string>
-    <string name="error_validate_email">Ops! Algo de errado com o seu email.</string>
+    <string name="error_validate_email">Ops! Algo de errado com o email.</string>
     <string name="error_validate_password">Ops! Sua senha precisa de letras maúsculas, minúsculas e números.</string>
     <string name="error_validate_password_length">Sua senha precisa ter mais de 6 dígitos!</string>
     <string name="error_validate_password_confirm">Senhas diferentes!</string>
@@ -43,5 +43,11 @@
     <string name="toolbar_title_chat">Conversas</string>
     <!-- Friends -->
     <string name="toolbar_title_friends">Meus Amigos</string>
+    <string name="btn_open_add_friend_dialog">Adicionar novo amigo!</string>
+    <!-- Add Friends Dialog -->
+    <string name="title_dialog">Digite o email do seu novo amigo!</string>
+    <string name="title_input_email_friend_dialog">Email do usuário</string>
+    <string name="btn_dismiss_dialog">Cancelar</string>
+    <string name="btn_add_friend_dialog">Adicionar</string>
 
 </resources>

@@ -12,6 +12,6 @@
         android:left="16dp" />
 
     <solid
-        android:color="@color/purple" />
+        android:color="@color/blue" />
 
 </shape>

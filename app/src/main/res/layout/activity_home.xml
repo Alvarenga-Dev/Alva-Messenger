@@ -5,7 +5,7 @@
     android:id="@+id/drawerLayoutHome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activitys.HomeActivity">
+    tools:context=".view.activitys.HomeActivity">
 
     <include
         layout="@layout/content_home"
