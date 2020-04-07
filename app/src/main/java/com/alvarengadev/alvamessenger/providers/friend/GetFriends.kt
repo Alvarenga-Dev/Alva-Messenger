@@ -1,11 +1,12 @@
 package com.alvarengadev.alvamessenger.providers.friend
 
 import android.content.Context
+import android.content.Intent
 import com.alvarengadev.alvamessenger.interfaces.OnItemClickListener
 import com.alvarengadev.alvamessenger.models.Friend
 import com.alvarengadev.alvamessenger.presenters.SettingsFirebase
+import com.alvarengadev.alvamessenger.utils.Consts
 import com.alvarengadev.alvamessenger.utils.PreferencesUtils
-import com.alvarengadev.alvamessenger.utils.RoutesUtils
 import com.alvarengadev.alvamessenger.view.activitys.ChatActivity
 import com.alvarengadev.alvamessenger.view.adapters.ListFriendsAdapter
 import com.google.firebase.database.DataSnapshot
@@ -53,6 +54,8 @@ class GetFriends(private val context: Context): ValueEventListener, OnItemClickL
     }
 
     override fun onItemClick(postion: Int) {
-        context.startActivity(RoutesUtils.routes(context, ChatActivity::class.java))
+        val intent = Intent(context, ChatActivity::class.java)
+        intent.putExtra(Consts.FRIEND_NAME, arrayFriends[postion])
+        context.startActivity(intent)
     }
 }
