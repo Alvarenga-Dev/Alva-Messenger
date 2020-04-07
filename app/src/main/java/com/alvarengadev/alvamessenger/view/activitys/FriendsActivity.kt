@@ -17,7 +17,7 @@ class FriendsActivity : AppCompatActivity(), Toolbar {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_friends)
 
-        initToolbar()
+        initToolbar("")
         initListFriends()
 
         fabOpenDialog.setOnClickListener { openDialog() }
@@ -35,8 +35,8 @@ class FriendsActivity : AppCompatActivity(), Toolbar {
 
     private fun openDialog() = AddFriendsDialog().show(supportFragmentManager, "Add Friends Dialog")
 
-    override fun initToolbar() {
-        toolbarFriends.title = ""
+    override fun initToolbar(title: String?) {
+        toolbarFriends.title = title
         setSupportActionBar(toolbarFriends)
         toolbarFriends.setNavigationIcon(R.drawable.ic_arrow_back)
         toolbarFriends.setNavigationOnClickListener{ finish() }

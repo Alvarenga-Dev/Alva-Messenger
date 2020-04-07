@@ -1,5 +1,5 @@
 package com.alvarengadev.alvamessenger.interfaces
 
 interface Toolbar {
-    fun initToolbar()
+    fun initToolbar(title: String?)
 }
