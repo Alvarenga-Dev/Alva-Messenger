@@ -41,6 +41,8 @@
     <string name="menu_item_logout">Sair</string>
     <!-- Home - chats -->
     <string name="toolbar_title_chat">Conversas</string>
+    <!-- Chat -->
+    <string name="label_input_message">Menssagem…</string>
     <!-- Friends -->
     <string name="toolbar_title_friends">Meus Amigos</string>
     <string name="btn_open_add_friend_dialog">Adicionar novo amigo!</string>

@@ -29,7 +29,7 @@
         android:background="@drawable/bg_input_chat"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="Menssagem..."
+        android:hint="@string/label_input_message"
         android:inputType="textMultiLine"
         android:textColor="@color/colorText"
         android:textColorHint="@color/colorHintChat"
@@ -43,10 +43,18 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
-        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_send" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/etMessage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarChat"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
