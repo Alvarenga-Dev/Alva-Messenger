@@ -1,5 +1,3 @@
-<h3 align="center">Alva Messenger</h3>
-
 ## Projeto 📋
 
 <p>O Alva Messenger é um app de mensagens!</p>
