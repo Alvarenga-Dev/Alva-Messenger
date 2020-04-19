@@ -12,8 +12,8 @@
 
 ## A fazer ⛏
 
-[] Aplicação da Arquitetura MVP
-[] Melhorar a qualidade do código
+- Aplicação da Arquitetura MVP
+- Melhorar a qualidade do código
 
 ## Autor 🙋🏻‍♂️
 
