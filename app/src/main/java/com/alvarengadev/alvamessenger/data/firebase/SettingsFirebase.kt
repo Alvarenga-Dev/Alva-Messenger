@@ -1,4 +1,4 @@
-package com.alvarengadev.alvamessenger.presenters
+package com.alvarengadev.alvamessenger.data.firebase
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference

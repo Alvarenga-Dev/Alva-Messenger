@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.*
 import com.alvarengadev.alvamessenger.R
-import com.alvarengadev.alvamessenger.models.User
-import com.alvarengadev.alvamessenger.providers.UserActions
+import com.alvarengadev.alvamessenger.data.domain.User
+import com.alvarengadev.alvamessenger.presenter.user.CreateUser
 import com.alvarengadev.alvamessenger.utils.InputsValidatorUtils
 import com.alvarengadev.alvamessenger.utils.RoutesUtils
 import com.google.android.material.snackbar.Snackbar
@@ -46,8 +46,7 @@ class SignUpActivity : AppCompatActivity(), OnClickListener {
             false
         }else {
             val user = User(firstName, lastName, email, password)
-            val userActions = UserActions(applicationContext)
-            userActions.register(view, user)
+            CreateUser().register(view, user)
             true
         }
 

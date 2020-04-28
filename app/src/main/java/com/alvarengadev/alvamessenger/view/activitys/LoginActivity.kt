@@ -4,8 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.alvarengadev.alvamessenger.R
-import com.alvarengadev.alvamessenger.models.User
-import com.alvarengadev.alvamessenger.providers.UserActions
+import com.alvarengadev.alvamessenger.data.domain.User
+import com.alvarengadev.alvamessenger.presenter.user.Actions
 import com.alvarengadev.alvamessenger.utils.InputsValidatorUtils
 import com.alvarengadev.alvamessenger.utils.RoutesUtils
 import com.google.android.material.snackbar.Snackbar
@@ -29,8 +29,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
     }
 
     private fun validator(view: View): Boolean {
-        val email = inputLoginEmail.editText?.text.toString();
-        val password = inputLoginPasword.editText?.text.toString();
+        val email = inputLoginEmail.editText?.text.toString()
+        val password = inputLoginPasword.editText?.text.toString()
 
         val inputsValidatorUtils = InputsValidatorUtils(applicationContext)
         val isValidatorEmail = inputsValidatorUtils.validateEmail(inputLoginEmail, email)
@@ -43,8 +43,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
             val user = User()
             user.email = email
             user.password = password
-            val userActions = UserActions(applicationContext)
-            userActions.validatorLogin(view, user)
+            Actions(applicationContext, user).login(view)
             true
         }
     }

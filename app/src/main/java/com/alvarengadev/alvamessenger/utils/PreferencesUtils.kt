@@ -9,7 +9,8 @@ class PreferencesUtils(context: Context) {
     private val editor: SharedPreferences.Editor
 
     companion object{
-        private const val USER_KEY = "idUserLogin"
+        private const val USER_KEY = "userId"
+        private const val USER_NAME = "userName"
         private const val PREFERENCES = "preferences.alvamesseger"
         private const val MODE = 0
     }
@@ -19,13 +20,18 @@ class PreferencesUtils(context: Context) {
         editor = preferences.edit()
     }
 
-    fun saveUserDatas (userKey: String) {
+    fun saveUserDatas(userKey: String, userName: String) {
         editor.putString(USER_KEY, userKey)
+        editor.putString(USER_NAME, userName)
         editor.commit()
     }
 
-    fun getUserDatas(): String? {
+    fun getUserKey(): String? {
         return preferences.getString(USER_KEY, null)
+    }
+
+    fun getUserName(): String? {
+        return preferences.getString(USER_NAME, null)
     }
 
 }

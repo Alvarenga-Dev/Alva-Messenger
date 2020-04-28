@@ -6,9 +6,13 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import androidx.core.view.get
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.alvarengadev.alvamessenger.R
-import com.alvarengadev.alvamessenger.providers.UserActions
+import com.alvarengadev.alvamessenger.presenter.chats.GetChats
+import com.alvarengadev.alvamessenger.presenter.user.Actions
 import com.alvarengadev.alvamessenger.utils.RoutesUtils
+import com.alvarengadev.alvamessenger.view.adapters.chats.ListChatsAdapter
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.content_home.*
@@ -21,8 +25,20 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener,
         setContentView(R.layout.activity_home)
 
         initDrawer()
+        initListChats()
 
         fabFriends.setOnClickListener(this)
+    }
+
+    private fun initListChats() {
+
+        val getChats = GetChats(this)
+
+        rcyChats.apply {
+            hasFixedSize()
+            layoutManager = LinearLayoutManager(context)
+            adapter = getChats.get()
+        }
     }
 
     private fun initDrawer() {
@@ -60,7 +76,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener,
                 true
             }
             R.id.menuLogout -> {
-                UserActions.signOut()
+                Actions.signOut()
                 startActivity(RoutesUtils.routes(applicationContext, SignInActivity::class.java))
                 finish()
                 true

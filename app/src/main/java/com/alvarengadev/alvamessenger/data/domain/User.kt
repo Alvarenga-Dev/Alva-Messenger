@@ -1,4 +1,4 @@
-package com.alvarengadev.alvamessenger.models
+package com.alvarengadev.alvamessenger.data.domain
 
 import com.google.firebase.database.Exclude
 

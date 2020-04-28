@@ -6,12 +6,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.alvarengadev.alvamessenger.R
-import com.alvarengadev.alvamessenger.interfaces.OnItemClickListener
+import com.alvarengadev.alvamessenger.view.adapters.interfaces.OnItemClickListener
+import com.alvarengadev.alvamessenger.data.domain.Friend
 
-class ListFriendsAdapter(private val listFriends: ArrayList<String>): RecyclerView.Adapter<ListFriendsAdapter.ViewHolderFriends>() {
+class ListFriendsAdapter(private val listFriends: ArrayList<Friend>) :
+    RecyclerView.Adapter<ListFriendsAdapter.ViewHolderFriends>() {
 
     private var listener: OnItemClickListener? = null
-
 
     fun setOnClickListener(listener: OnItemClickListener?) {
         this.listener = listener
@@ -26,21 +27,14 @@ class ListFriendsAdapter(private val listFriends: ArrayList<String>): RecyclerVi
         return ViewHolderFriends(view, listener)
     }
 
-    override fun getItemCount(): Int {
-        return listFriends.size
-    }
+    override fun getItemCount(): Int = listFriends.size
 
     override fun onBindViewHolder(holder: ViewHolderFriends, position: Int) {
 
-        holder.nameFriend.text = listFriends[position]
+        holder.nameFriend.text =
+            ("${listFriends[position].firstName} ${listFriends[position].lastName}")
 
     }
-
-    fun addFriendNotify(name: String) {
-        listFriends.add(name)
-        notifyItemInserted( itemCount )
-    }
-
 
     class ViewHolderFriends(itemView: View, listener: OnItemClickListener?) : RecyclerView.ViewHolder(itemView) {
 

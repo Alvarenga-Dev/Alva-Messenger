@@ -25,11 +25,10 @@ class SignInActivity : AppCompatActivity(){
 
     }
 
-    private fun startRouter(destiny: Class<*>){
+    private fun startRouter(destiny: Class<*>) =
         startActivity(RoutesUtils.routes(applicationContext, destiny))
-    }
 
-    private fun stringCustomSignUp():SpannableString {
+    private fun stringCustomSignUp(): SpannableString {
 
         val textSignUp = SpannableString( resources.getString(R.string.button_create_user) )
 

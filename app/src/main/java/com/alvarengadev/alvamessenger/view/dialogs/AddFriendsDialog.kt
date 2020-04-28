@@ -8,7 +8,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatDialogFragment
 import com.alvarengadev.alvamessenger.R
-import com.alvarengadev.alvamessenger.providers.friend.AddFriend
+import com.alvarengadev.alvamessenger.presenter.friend.AddFriend
 import com.alvarengadev.alvamessenger.utils.InputsValidatorUtils
 import com.google.android.material.textfield.TextInputLayout
 

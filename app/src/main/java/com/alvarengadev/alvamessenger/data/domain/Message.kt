@@ -1,4 +1,4 @@
-package com.alvarengadev.alvamessenger.models
+package com.alvarengadev.alvamessenger.data.domain
 
 class Message {
     var id: String = ""

@@ -1,10 +1,10 @@
-package com.alvarengadev.alvamessenger.providers.friend
+package com.alvarengadev.alvamessenger.presenter.friend
 
 import android.content.Context
 import android.content.Intent
-import com.alvarengadev.alvamessenger.interfaces.OnItemClickListener
-import com.alvarengadev.alvamessenger.models.Friend
-import com.alvarengadev.alvamessenger.presenters.SettingsFirebase
+import com.alvarengadev.alvamessenger.view.adapters.interfaces.OnItemClickListener
+import com.alvarengadev.alvamessenger.data.domain.Friend
+import com.alvarengadev.alvamessenger.data.firebase.SettingsFirebase
 import com.alvarengadev.alvamessenger.utils.Consts
 import com.alvarengadev.alvamessenger.utils.PreferencesUtils
 import com.alvarengadev.alvamessenger.view.activitys.ChatActivity
@@ -14,10 +14,11 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import java.util.ArrayList
 
-class GetFriends(private val context: Context): ValueEventListener, OnItemClickListener {
+class GetFriends(private val context: Context) : ValueEventListener,
+    OnItemClickListener {
 
     private val databaseReference = SettingsFirebase.databaseReference
-    private val arrayFriends = ArrayList<String>()
+    private val arrayFriends = ArrayList<Friend>()
     private val listFriendsAdapter = ListFriendsAdapter(arrayFriends)
 
     fun get(): ListFriendsAdapter {
@@ -25,7 +26,7 @@ class GetFriends(private val context: Context): ValueEventListener, OnItemClickL
 
         databaseReference
             .child("Friends")
-            .child(preferences.getUserDatas()!!)
+            .child(preferences.getUserKey()!!)
             .addValueEventListener(this)
 
         listFriendsAdapter.setOnClickListener(this)
@@ -43,7 +44,7 @@ class GetFriends(private val context: Context): ValueEventListener, OnItemClickL
 
         for (datas in dataSnapshot.children) {
             val friend = datas.getValue( Friend::class.java )
-            arrayFriends.add("${friend!!.firstName} ${friend.lastName}")
+            arrayFriends.add(friend!!)
         }
 
         listFriendsAdapter.notifyDataSetChanged()
@@ -55,7 +56,11 @@ class GetFriends(private val context: Context): ValueEventListener, OnItemClickL
 
     override fun onItemClick(postion: Int) {
         val intent = Intent(context, ChatActivity::class.java)
-        intent.putExtra(Consts.FRIEND_NAME, arrayFriends[postion])
+        intent.putExtra(
+            Consts.FRIEND_NAME,
+            "${arrayFriends[postion].firstName} ${arrayFriends[postion].lastName}"
+        )
+        intent.putExtra(Consts.FRIEND_EMAIL, arrayFriends[postion].email)
         context.startActivity(intent)
     }
 }

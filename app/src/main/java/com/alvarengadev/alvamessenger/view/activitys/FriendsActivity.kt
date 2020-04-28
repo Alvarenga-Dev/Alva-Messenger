@@ -4,12 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.alvarengadev.alvamessenger.R
-import com.alvarengadev.alvamessenger.interfaces.Toolbar
-import com.alvarengadev.alvamessenger.providers.friend.GetFriends
+import com.alvarengadev.alvamessenger.presenter.friend.GetFriends
 import com.alvarengadev.alvamessenger.view.dialogs.AddFriendsDialog
 import kotlinx.android.synthetic.main.activity_friends.*
 
-class FriendsActivity : AppCompatActivity(), Toolbar {
+class FriendsActivity : AppCompatActivity() {
 
     private val getFriends = GetFriends(this)
 
@@ -17,7 +16,7 @@ class FriendsActivity : AppCompatActivity(), Toolbar {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_friends)
 
-        initToolbar("")
+        initToolbar()
         initListFriends()
 
         fabOpenDialog.setOnClickListener { openDialog() }
@@ -35,8 +34,8 @@ class FriendsActivity : AppCompatActivity(), Toolbar {
 
     private fun openDialog() = AddFriendsDialog().show(supportFragmentManager, "Add Friends Dialog")
 
-    override fun initToolbar(title: String?) {
-        toolbarFriends.title = title
+    private fun initToolbar() {
+        toolbarFriends.title = ""
         setSupportActionBar(toolbarFriends)
         toolbarFriends.setNavigationIcon(R.drawable.ic_arrow_back)
         toolbarFriends.setNavigationOnClickListener{ finish() }
