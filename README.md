@@ -17,7 +17,7 @@
 
 💁🏻‍♂️ **Lucas Alvarenga**
 
-* Meu Portifólio: https://alvarengadev.firebaseapp.com
+* Meu Portfólio: https://alvarengadev.firebaseapp.com
 * Github: [@Alvarenga-Dev](https://github.com/Alvarenga-Dev)
 
 ## Dá uma estrelinha! ⭐️
