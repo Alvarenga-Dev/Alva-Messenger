@@ -17,7 +17,7 @@ import com.alvarengadev.alvamessenger.utils.Base64Actions
 import com.alvarengadev.alvamessenger.utils.Constants
 import com.alvarengadev.alvamessenger.utils.PreferencesUtils
 import com.alvarengadev.alvamessenger.utils.RoutesUtils
-import com.alvarengadev.alvamessenger.view.adapters.chats.ChatItemClick
+import com.alvarengadev.alvamessenger.view.adapters.chat.ChatItemClick
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.content_home.*

@@ -1,12 +1,12 @@
-package com.alvarengadev.alvamessenger.view.adapters.chats
+package com.alvarengadev.alvamessenger.view.adapters.chat
 
 import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.alvarengadev.alvamessenger.R
-import com.alvarengadev.alvamessenger.view.adapters.interfaces.OnItemClickListener
+import com.alvarengadev.alvamessenger.data.domain.Chat
 
-class ViewHolderChat(itemView: View, listener: OnItemClickListener?) :
+class ViewHolderChat(itemView: View, arrayChats: ArrayList<Chat>, listener: ChatItemClick?) :
     RecyclerView.ViewHolder(itemView) {
 
     val nameFriend = itemView.findViewById(R.id.tvNameFriend) as TextView
@@ -16,7 +16,7 @@ class ViewHolderChat(itemView: View, listener: OnItemClickListener?) :
         itemView.setOnClickListener {
             if (listener != null) {
                 val positionRcy = adapterPosition
-                if (positionRcy != RecyclerView.NO_POSITION) listener.onItemClick(positionRcy)
+                if (positionRcy != RecyclerView.NO_POSITION) listener.itemClick(arrayChats[positionRcy])
             }
         }
     }
