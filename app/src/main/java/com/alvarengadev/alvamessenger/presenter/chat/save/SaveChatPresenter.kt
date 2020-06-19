@@ -1,4 +1,4 @@
-package com.alvarengadev.alvamessenger.presenter.chats.save
+package com.alvarengadev.alvamessenger.presenter.chat.save
 
 import com.alvarengadev.alvamessenger.data.domain.Chat
 import com.alvarengadev.alvamessenger.data.firebase.SettingsFirebase
