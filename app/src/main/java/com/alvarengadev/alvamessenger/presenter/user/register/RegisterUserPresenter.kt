@@ -1,17 +1,15 @@
-package com.alvarengadev.alvamessenger.presenter.user
+package com.alvarengadev.alvamessenger.presenter.user.register
 
-import android.view.View
 import com.alvarengadev.alvamessenger.data.domain.User
 import com.alvarengadev.alvamessenger.data.firebase.SettingsFirebase
 import com.alvarengadev.alvamessenger.utils.Base64Actions
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 
-class CreateUser {
+class RegisterUserPresenter(private val view: RegisterUserInterface.View) :
+    RegisterUserInterface.Presenter {
 
-    fun register(view: View, user: User) {
-
+    override fun register(user: User) {
         val auth = SettingsFirebase.authReference
         val userId = Base64Actions.encodeBase64(user.email)
 
@@ -19,18 +17,19 @@ class CreateUser {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val settingsFirebase = SettingsFirebase.databaseReference
-
                     settingsFirebase.child("Users").child(userId).setValue(user)
-
+                    view.saveUser(userId, user.name)
+                    view.registerSuccess(true)
                 } else {
-                    val error = try {
+                    val messageError = try {
                         throw task.exception!!
                     } catch (networkException: FirebaseNetworkException) {
                         "Sem conexão :("
                     } catch (authWeakPasswordException: FirebaseAuthWeakPasswordException) {
                         "Sua senha não é forte!"
                     }
-                    Snackbar.make(view, error, Snackbar.LENGTH_SHORT).show()
+                    view.registerSuccess(false)
+                    view.error(messageError)
                 }
             }
     }
