@@ -2,21 +2,18 @@ package com.alvarengadev.alvamessenger.data.domain
 
 class Friend {
     var id: String = ""
-    var firstName: String = ""
-    var lastName: String = ""
+    var name: String = ""
     var email: String = ""
 
     constructor()
 
-    constructor(id: String, firstName: String, lastName: String, email: String) {
+    constructor(id: String, name: String, email: String) {
         this.id = id
-        this.firstName = firstName
-        this.lastName = lastName
+        this.name = name
         this.email = email
     }
 
-    constructor(firstName: String, lastName: String) {
-        this.firstName = firstName
-        this.lastName = lastName
+    constructor(name: String) {
+        this.name = name
     }
 }
