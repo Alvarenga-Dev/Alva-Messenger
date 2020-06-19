@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView style="@style/StyleLayout"
+<ScrollView style="@style/ContainerStyle"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -14,7 +14,7 @@
 
         <TextView
             android:id="@+id/textTitlePageSignIn"
-            style="@style/StyleTitles"
+            style="@style/TitleStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -27,7 +27,7 @@
 
         <Button
             android:id="@+id/buttonSignInWithMail"
-            style="@style/StyleButtons"
+            style="@style/ButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -42,7 +42,7 @@
 
         <TextView
             android:id="@+id/textOrOptionsLogin"
-            style="@style/StyleTitles"
+            style="@style/TitleStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -55,7 +55,7 @@
 
         <Button
             android:id="@+id/buttonSignInWithGoogle"
-            style="@style/StyleButtons"
+            style="@style/ButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -76,7 +76,7 @@
             android:background="@color/darkGrey"
             android:text="@string/button_create_user"
             android:textAllCaps="false"
-            android:textColor="@color/colorTitles"
+            android:textColor="@color/colorTitle"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

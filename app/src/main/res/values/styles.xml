@@ -12,34 +12,39 @@
         <item name="android:fontFamily">@font/montserrat_medium</item>
     </style>
 
-    <style name="StyleTitles" parent="TextAppearance.AppCompat">
-        <item name="android:textColor">@color/colorTitles</item>
+    <style name="TitleStyle">
+        <item name="android:textColor">@color/colorTitle</item>
         <item name="android:textSize">@dimen/text_size_title_smartphones</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="StyleDrawerText" parent="TextAppearance.AppCompat">
-        <item name="android:textColor">@color/colorTitles</item>
+    <style name="SmallTextStyle">
+        <item name="android:textColor">@color/colorSmallText</item>
+        <item name="android:textSize">@dimen/text_size_minimum_smartphones</item>
+    </style>
+
+    <style name="DrawerTextStyle">
+        <item name="android:textColor">@color/colorTitle</item>
         <item name="android:textSize">@dimen/text_size_normal_smartphones</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="StyleTextInputLayout" parent="Widget.Design.TextInputLayout">
-        <item name="android:textColorHint">@color/colorTitles</item>
+    <style name="InputStyle">
+        <item name="android:textColorHint">@color/colorTitle</item>
         <item name="android:textSize">@dimen/text_size_big_smartphones</item>
     </style>
 
-    <style name="StyleEditText" parent="Widget.AppCompat.EditText">
-        <item name="android:textColor">@color/colorTitles</item>
-        <item name="android:backgroundTint">@color/colorTitles</item>
+    <style name="EditTextStyle">
+        <item name="android:textColor">@color/colorTitle</item>
+        <item name="android:backgroundTint">@color/colorTitle</item>
         <item name="android:textSize">@dimen/text_size_normal_smartphones</item>
     </style>
 
-    <style name="StyleButtons" parent="TextAppearance.AppCompat.Button">
+    <style name="ButtonStyle">
         <item name="android:background">@drawable/bg_btn</item>
         <item name="android:drawablePadding">@dimen/padding_icon_button</item>
         <item name="android:textAllCaps">false</item>
-        <item name="android:textColor">@color/colorTitles</item>
+        <item name="android:textColor">@color/colorTitle</item>
         <item name="android:textSize">@dimen/btn_text</item>
         <item name="android:paddingTop">@dimen/padding_button_horizontal</item>
         <item name="android:paddingBottom">@dimen/padding_button_horizontal</item>
@@ -47,7 +52,7 @@
         <item name="android:paddingLeft">@dimen/padding_button_vertical</item>
     </style>
 
-    <style name="StyleLayout" parent="Widget.Support.CoordinatorLayout">
+    <style name="ContainerStyle">
         <item name="android:background">@color/darkGrey</item>
     </style>
 

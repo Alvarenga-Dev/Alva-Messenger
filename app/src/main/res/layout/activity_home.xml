@@ -20,15 +20,14 @@
         android:background="@color/lightGrey"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        app:headerLayout="@layout/header_drawer"
-        app:itemIconTint="@color/colorTitles"
-        app:itemTextAppearance="@style/StyleDrawerText"
-        app:itemTextColor="@color/colorTitles"
+        app:itemIconTint="@color/colorTitle"
+        app:itemTextAppearance="@style/DrawerTextStyle"
+        app:itemTextColor="@color/colorTitle"
         app:menu="@menu/menu_drawer">
 
         <TextView
             android:id="@+id/textDesignerBy"
-            style="@style/StyleDrawerText"
+            style="@style/DrawerTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
