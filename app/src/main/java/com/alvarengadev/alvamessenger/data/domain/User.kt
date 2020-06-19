@@ -6,20 +6,22 @@ class User {
 
     @get:Exclude
     var id: String = ""
-    var firstName: String = ""
-    var lastName: String = ""
+    var name: String = ""
     var email: String = ""
+
     @get:Exclude
     var password: String = ""
 
     constructor()
-    constructor(firstName: String, lastName: String, email: String, password: String) {
-        this.firstName = firstName
-        this.lastName = lastName
+
+    constructor(name: String, email: String, password: String) {
+        this.name = name
         this.email = email
         this.password = password
     }
 
-
-
+    constructor(email: String, password: String) {
+        this.email = email
+        this.password = password
+    }
 }
