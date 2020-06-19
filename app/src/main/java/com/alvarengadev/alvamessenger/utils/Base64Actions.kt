@@ -2,7 +2,7 @@ package com.alvarengadev.alvamessenger.utils
 
 import android.util.Base64
 
-abstract class Base64Actions {
+class Base64Actions {
     companion object {
         fun encodeBase64(email: String): String =
             Base64.encodeToString(email.toByteArray(), Base64.DEFAULT)
