@@ -1,9 +1,9 @@
-package com.alvarengadev.alvamessenger.presenter.chats
+package com.alvarengadev.alvamessenger.presenter.chats.save
 
 import com.alvarengadev.alvamessenger.data.domain.Chat
 import com.alvarengadev.alvamessenger.data.firebase.SettingsFirebase
 
-class SaveChat {
+class SaveChatPresenter {
 
     fun save(sender: String, receiver: String?, chat: Chat): Boolean {
 
