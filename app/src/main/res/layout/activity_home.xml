@@ -5,7 +5,7 @@
     android:id="@+id/drawerLayoutHome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activitys.HomeActivity">
+    tools:context=".view.activities.HomeActivity">
 
     <include
         layout="@layout/content_home"
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
             android:layout_marginBottom="48dp"
-            android:text="Designer by Lucas Alvarenga" />
+            android:text="Design by Lucas Alvarenga" />
     </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>

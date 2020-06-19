@@ -11,12 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".view.activitys.ChatActivity"/>
-        <activity android:name=".view.activitys.ProfileActivity" />
-        <activity android:name=".view.activitys.FriendsActivity" />
-        <activity android:name=".view.activitys.LoginSuccessfullyActivity" />
-        <activity android:name=".view.activitys.SignUpActivity" />
-        <activity android:name=".view.activitys.LoginActivity" />
+        <activity android:name=".view.activities.MessagesActivity" />
+        <activity android:name=".view.activities.ProfileActivity" />
+        <activity android:name=".view.activities.FriendsActivity" />
+        <activity android:name=".view.activities.LoginSuccessfullyActivity" />
+        <activity android:name=".view.activities.SignUpActivity" />
+        <activity android:name=".view.activities.LoginActivity" />
         <activity android:name=".view.introscreens.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,8 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activitys.SignInActivity" />
-        <activity android:name=".view.activitys.HomeActivity" />
+        <activity android:name=".view.activities.SignInActivity" />
+        <activity android:name=".view.activities.HomeActivity" />
     </application>
 
 </manifest>
