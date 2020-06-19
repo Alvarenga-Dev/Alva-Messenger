@@ -1,4 +1,4 @@
-package com.alvarengadev.alvamessenger.view.activitys
+package com.alvarengadev.alvamessenger.view.activities
 
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
@@ -22,15 +22,10 @@ class SignInActivity : AppCompatActivity(){
             text = stringCustomSignUp()
             setOnClickListener { startRouter(SignUpActivity::class.java) }
         }
-
     }
 
-    private fun startRouter(destiny: Class<*>) =
-        startActivity(RoutesUtils.routes(applicationContext, destiny))
-
     private fun stringCustomSignUp(): SpannableString {
-
-        val textSignUp = SpannableString( resources.getString(R.string.button_create_user) )
+        val textSignUp = SpannableString(resources.getString(R.string.button_create_user))
 
         textSignUp.setSpan(
             StyleSpan(Typeface.BOLD),
@@ -38,7 +33,10 @@ class SignInActivity : AppCompatActivity(){
             38,
             Spanned.SPAN_INCLUSIVE_INCLUSIVE
         )
-
         return textSignUp
+    }
+
+    private fun startRouter(destiny: Class<*>) {
+        startActivity(RoutesUtils.routes(this@SignInActivity, destiny))
     }
 }
