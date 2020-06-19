@@ -8,41 +8,26 @@ import java.util.regex.Pattern
 
 class InputsValidatorUtils(private val context: Context) {
 
-    companion object{
+    companion object {
         private val NAME_PATTERN = // Name (UpperCase and LowerCase)
-            Pattern.compile("^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*\$")
+            Pattern.compile("^[a-zA-Z]+(([',. -][A-Za-zÀ-ú])?[A-Za-zÀ-ú]*)*\$")
 
         private val PASSWORD_PATTERN = // Password (UpperCase, LowerCase and Number)
             Pattern.compile("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).{6,}\$")
     }
 
-    fun validateFirstName(textInputLayoutFirstName: TextInputLayout, firstName: String): Boolean{
-        return if(firstName.trim().isEmpty()){
+    fun validateName(textInputLayoutFirstName: TextInputLayout, name: String): Boolean {
+        return if (name.trim().isEmpty()) {
             textInputLayoutFirstName.error = this.context.getString(R.string.error_empty)
             textInputLayoutFirstName.requestFocus()
             false
-        }else if (!NAME_PATTERN.matcher(firstName).matches()) {
-            textInputLayoutFirstName.error = this.context.getString(R.string.error_validate_firstname_and_lastname)
+        } else if (!NAME_PATTERN.matcher(name).matches()) {
+            textInputLayoutFirstName.error =
+                this.context.getString(R.string.error_validate_firstname_and_lastname)
             textInputLayoutFirstName.requestFocus()
             false
-        }else {
+        } else {
             textInputLayoutFirstName.error = null
-            true
-        }
-
-    }
-
-    fun validateLastName(textInputLayoutLastName: TextInputLayout, lastName: String): Boolean{
-        return if(lastName.trim().isEmpty()){
-            textInputLayoutLastName.error = this.context.getString(R.string.error_empty)
-            textInputLayoutLastName.requestFocus()
-            false
-        }else if (!NAME_PATTERN.matcher(lastName).matches()) {
-            textInputLayoutLastName.error = this.context.getString(R.string.error_validate_firstname_and_lastname)
-            textInputLayoutLastName.requestFocus()
-            false
-        }else {
-            textInputLayoutLastName.error = null
             true
         }
 
