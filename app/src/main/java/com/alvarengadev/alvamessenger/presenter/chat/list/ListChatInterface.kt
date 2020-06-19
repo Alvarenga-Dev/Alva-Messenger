@@ -1,6 +1,6 @@
 package com.alvarengadev.alvamessenger.presenter.chat.list
 
-import com.alvarengadev.alvamessenger.view.adapters.chats.ListChatsAdapter
+import com.alvarengadev.alvamessenger.view.adapters.chat.ListChatsAdapter
 
 interface ListChatInterface {
 

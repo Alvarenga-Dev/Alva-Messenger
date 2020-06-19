@@ -3,7 +3,7 @@ package com.alvarengadev.alvamessenger.presenter.chat.list
 
 import com.alvarengadev.alvamessenger.data.domain.Chat
 import com.alvarengadev.alvamessenger.data.firebase.SettingsFirebase
-import com.alvarengadev.alvamessenger.view.adapters.chats.ListChatsAdapter
+import com.alvarengadev.alvamessenger.view.adapters.chat.ListChatsAdapter
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
