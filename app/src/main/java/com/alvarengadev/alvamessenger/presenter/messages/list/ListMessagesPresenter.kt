@@ -1,50 +1,44 @@
-package com.alvarengadev.alvamessenger.presenter.messages
+package com.alvarengadev.alvamessenger.presenter.messages.list
 
-import android.content.Context
 import com.alvarengadev.alvamessenger.data.domain.Message
 import com.alvarengadev.alvamessenger.data.firebase.SettingsFirebase
-import com.alvarengadev.alvamessenger.utils.Base64Actions
-import com.alvarengadev.alvamessenger.utils.PreferencesUtils
 import com.alvarengadev.alvamessenger.view.adapters.messages.ListMessagesAdapter
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 
-class GetMessages(private val context: Context) : ValueEventListener {
+class ListMessagesPresenter(private val view: ListMessagesInterface.View) :
+    ListMessagesInterface.Presenter,
+    ValueEventListener {
 
     private val databaseReference = SettingsFirebase.databaseReference
     private val arrayMessages = ArrayList<Message>()
     private val listChatAdapter = ListMessagesAdapter(arrayMessages)
 
-    fun get(idFriend: String?): ListMessagesAdapter {
-        val preferences = PreferencesUtils(context)
+    override fun stopGetMessages() = databaseReference.removeEventListener(this)
 
+    override fun getAdapter(): ListMessagesAdapter {
         databaseReference.child("Messages")
-            .child(preferences.getUserKey()!!)
-            .child(Base64Actions.encodeBase64(idFriend!!))
+            .child(view.userKey()!!)
+            .child(view.friendKey()!!)
             .addValueEventListener(this)
 
         return listChatAdapter
-    }
-
-    fun getStop() {
-        databaseReference.removeEventListener(this)
     }
 
     override fun onDataChange(dataSnapshot: DataSnapshot) {
 
         arrayMessages.clear()
 
-        for (datas in dataSnapshot.children) {
-            val message = datas.getValue(Message::class.java)
-            arrayMessages.add(message!!)
+        for (data in dataSnapshot.children) {
+            val message = data.getValue(Message::class.java)!!
+            arrayMessages.add(message)
         }
 
         listChatAdapter.notifyDataSetChanged()
-
     }
 
-    override fun onCancelled(databaseError: DatabaseError) {
-    }
+    override fun onCancelled(databaseError: DatabaseError) =
+        view.error("Erro na troca de mensagens!")
 
 }

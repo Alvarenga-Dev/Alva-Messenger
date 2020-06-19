@@ -1,4 +1,4 @@
-package com.alvarengadev.alvamessenger.presenter.messages
+package com.alvarengadev.alvamessenger.presenter.messages.save
 
 import android.content.Context
 import com.alvarengadev.alvamessenger.data.domain.Message
@@ -6,7 +6,7 @@ import com.alvarengadev.alvamessenger.data.firebase.SettingsFirebase
 import com.alvarengadev.alvamessenger.utils.PreferencesUtils
 import java.lang.Exception
 
-class SaveMessage(private val context: Context) {
+class SaveMessagePresenter(private val context: Context) {
 
     fun save(sender: String, receiver: String?, message: String): Boolean {
 
