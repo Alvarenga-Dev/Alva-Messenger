@@ -18,6 +18,7 @@ import com.alvarengadev.alvamessenger.utils.Constants
 import com.alvarengadev.alvamessenger.utils.PreferencesUtils
 import com.alvarengadev.alvamessenger.utils.RoutesUtils
 import com.alvarengadev.alvamessenger.view.adapters.chat.ChatItemClick
+import com.alvarengadev.alvamessenger.view.navigation.HeaderNavigationDrawer
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.content_home.*
@@ -62,6 +63,10 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener,
         )
         drawerLayoutHome.addDrawerListener(actionBarDrawerToggle)
         actionBarDrawerToggle.syncState()
+
+        val viewHeader = HeaderNavigationDrawer(this@HomeActivity)
+        viewHeader.setView(navigationHome)
+
         navigationHome.setNavigationItemSelectedListener(this)
     }
 
