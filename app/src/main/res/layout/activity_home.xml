@@ -26,7 +26,7 @@
         app:menu="@menu/menu_drawer">
 
         <TextView
-            android:id="@+id/textDesignerBy"
+            android:id="@+id/textDesignBy"
             style="@style/DrawerTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
