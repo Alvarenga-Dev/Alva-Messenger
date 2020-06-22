@@ -4,8 +4,9 @@
     <color name="colorPrimaryDark">#171717</color>
     <color name="colorAccent">#0066FF</color>
     <color name="colorError">#DB0545</color>
-    <color name="colorTitles">#F1F1F1</color>
-    <color name="colorSubTitles">#D8F1F1F1</color>
+    <color name="colorTitle">#F1F1F1</color>
+    <color name="colorSmallText">#E6F1F1F1</color>
+    <!--color name="colorSubTitles">#D8F1F1F1</color -->
     <color name="colorText">#F1F1F1</color>
     <color name="colorHintChat">#B2F1F1F1</color>
 
@@ -13,4 +14,5 @@
     <color name="darkGrey">#0C0C0C</color>
     <color name="lightGrey">#1E1E1E</color>
     <color name="blue">#0066FF</color>
+    <color name="purple">#8000FF</color>
 </resources>

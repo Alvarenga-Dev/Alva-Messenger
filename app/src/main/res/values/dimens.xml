@@ -4,12 +4,11 @@
     <dimen name="corners_default">10dp</dimen>
     <dimen name="corners_big">45dp</dimen>
     <!-- Fonts -->
-    <dimen name="text_size_title_smartphones">24sp</dimen>
+    <dimen name="text_size_minimum_smartphones">11sp</dimen>
     <dimen name="text_size_small_smartphones">14sp</dimen>
     <dimen name="text_size_normal_smartphones">16sp</dimen>
     <dimen name="text_size_big_smartphones">18sp</dimen>
-    <dimen name="text_size_name_friend_smartphones">14sp</dimen>
-    <dimen name="text_size_last_msg_smartphones">11sp</dimen>
+    <dimen name="text_size_title_smartphones">24sp</dimen>
     <!-- Buttons -->
     <dimen name="btn_text">18sp</dimen>
     <dimen name="padding_icon_button">16dp</dimen>
