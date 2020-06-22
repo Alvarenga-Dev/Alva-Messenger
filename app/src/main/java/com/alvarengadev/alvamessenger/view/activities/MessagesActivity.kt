@@ -13,6 +13,7 @@ import com.alvarengadev.alvamessenger.presenter.messages.list.ListMessagesPresen
 import com.alvarengadev.alvamessenger.utils.Base64Actions
 import com.alvarengadev.alvamessenger.utils.Constants
 import com.alvarengadev.alvamessenger.utils.PreferencesUtils
+import com.alvarengadev.alvamessenger.utils.RoutesUtils
 import kotlinx.android.synthetic.main.activity_chat.*
 
 class MessagesActivity : AppCompatActivity(), ListMessagesInterface.View {
@@ -88,7 +89,17 @@ class MessagesActivity : AppCompatActivity(), ListMessagesInterface.View {
         toolbarChat.title = title
         setSupportActionBar(toolbarChat)
         toolbarChat.setNavigationIcon(R.drawable.ic_arrow_back)
-        toolbarChat.setNavigationOnClickListener { finish() }
+        toolbarChat.setNavigationOnClickListener { returnHome() }
+    }
+
+    private fun returnHome() {
+        startActivity(RoutesUtils.routes(this@MessagesActivity, HomeActivity::class.java))
+        finish()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        returnHome()
     }
 
     override fun userKey(): String? = PreferencesUtils(this@MessagesActivity).getUserKey()
