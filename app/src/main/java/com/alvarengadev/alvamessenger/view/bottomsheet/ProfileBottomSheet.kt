@@ -1,37 +1,33 @@
 package com.alvarengadev.alvamessenger.view.bottomsheet
 
-import android.content.Context
-import android.view.LayoutInflater
+import android.app.Activity
 import android.view.View
-import android.widget.Toast
+import android.view.ViewGroup
 import com.alvarengadev.alvamessenger.R
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.android.synthetic.main.profile_bottom_sheet.view.*
 
-class ProfileBottomSheet(private val context: Context) {
+class ProfileBottomSheet(
+    private val activity: Activity,
+    private val bottomSheetInterface: BottomSheetInterface
+) {
 
-    private lateinit var dialog: BottomSheetDialog
+    private lateinit var bottomSheetDialog: BottomSheetDialog
 
     fun onCreateView() {
-        val view = LayoutInflater.from(context).inflate(R.layout.profile_bottom_sheet, null, false)
-        dialog = BottomSheetDialog(context)
+        val view = ViewGroup.inflate(activity, R.layout.profile_bottom_sheet, null)
+        bottomSheetDialog = BottomSheetDialog(activity)
 
-        dialog.setContentView(view)
+        bottomSheetDialog.setContentView(view)
         initButtons(view)
     }
 
-    fun showDialog() = dialog.show()
+    fun showDialog() = bottomSheetDialog.show()
+
+    fun closeDialog() = bottomSheetDialog.dismiss()
 
     private fun initButtons(view: View) {
-        view.fab_open_library.setOnClickListener(onCLickFabOpenLibrary())
-        view.fab_open_camera.setOnClickListener(onCLickFabOpenCamera())
-    }
-
-    private fun onCLickFabOpenLibrary(): View.OnClickListener = View.OnClickListener {
-        Toast.makeText(context, "Abrir galeria", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun onCLickFabOpenCamera(): View.OnClickListener = View.OnClickListener {
-        Toast.makeText(context, "Abrir câmera", Toast.LENGTH_SHORT).show()
+        view.fab_open_library.setOnClickListener(bottomSheetInterface.openLibrary())
+        view.fab_open_camera.setOnClickListener(bottomSheetInterface.openCamera())
     }
 }
