@@ -10,6 +10,5 @@ interface LoginInterface {
 
     interface Presenter {
         fun login()
-        fun getIdUser(): String
     }
 }

@@ -16,26 +16,24 @@ class LoginPresenter(private val view: LoginInterface.View, private val user: Us
 
         auth.signInWithEmailAndPassword(user.email, user.password).addOnCompleteListener { task ->
 
-            SettingsFirebase.databaseReference
-                .child("Users")
-                .child(getIdUser())
-                .addListenerForSingleValueEvent(this@LoginPresenter)
-
             if (task.isSuccessful) {
-                view.loginSuccess(true)
+                SettingsFirebase.databaseReference
+                    .child("Users")
+                    .child(Base64Actions.encodeBase64(user.email))
+                    .addListenerForSingleValueEvent(this@LoginPresenter)
             } else {
                 view.loginSuccess(false)
-                view.error("E-mail ou Senha inválidos! :(")
+                view.error("Login ou Senha inválidos!")
             }
         }
     }
 
-    override fun getIdUser(): String = Base64Actions.encodeBase64(user.email)
-
     override fun onDataChange(dataSnapshot: DataSnapshot) {
         val userData = dataSnapshot.getValue(User::class.java)!!
         view.saveUser(userData.name, userData.email)
+        view.loginSuccess(true)
     }
 
-    override fun onCancelled(databaseError: DatabaseError) = view.error("Algo deu errado :(")
+    override fun onCancelled(databaseError: DatabaseError) =
+        view.error("Algo deu errado com o seu login :(")
 }

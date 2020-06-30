@@ -15,9 +15,9 @@ class ListChatPresenter(private val view: ListChatInterface.View) : ValueEventLi
     private val arrayChats = ArrayList<Chat>()
     private val listChatsAdapter = ListChatsAdapter(arrayChats)
 
-    override fun getAdapter(id: String?): ListChatsAdapter {
+    override fun getAdapter(): ListChatsAdapter {
         database.child("Chats")
-            .child(id!!)
+            .child(view.userKey()!!)
             .addValueEventListener(this)
 
         return listChatsAdapter

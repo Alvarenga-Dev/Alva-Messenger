@@ -40,8 +40,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener,
     }
 
     private fun initListChats() {
-        val userId = PreferencesUtils(this@HomeActivity).getUserKey()
-        val listChatsAdapter = listChatsPresenter.getAdapter(userId)
+        val listChatsAdapter = listChatsPresenter.getAdapter()
         rcyChats.apply {
             hasFixedSize()
             layoutManager = LinearLayoutManager(this@HomeActivity)
@@ -96,6 +95,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener,
             R.id.menuLogout -> {
                 LogoutPresenter.signOut()
                 PreferencesUtils(this@HomeActivity).saveUserDatas("", "")
+                listChatsPresenter.stopGetChats()
                 startActivity(RoutesUtils.routes(applicationContext, SignInActivity::class.java))
                 finish()
                 true
@@ -112,4 +112,6 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener,
         intent.putExtra(Constants.FRIEND_EMAIL, Base64Actions.decodeBase64(chat.idUser))
         startActivity(intent)
     }
+
+    override fun userKey(): String? = PreferencesUtils(this@HomeActivity).getUserKey()
 }

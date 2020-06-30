@@ -5,11 +5,11 @@ import com.alvarengadev.alvamessenger.view.adapters.chat.ListChatsAdapter
 interface ListChatInterface {
 
     interface View {
-        //fun userKey(): String?
+        fun userKey(): String?
     }
 
     interface Presenter {
-        fun getAdapter(id: String?): ListChatsAdapter
+        fun getAdapter(): ListChatsAdapter
         fun stopGetChats()
     }
 }
