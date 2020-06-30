@@ -24,11 +24,12 @@ class LoginActivity : AppCompatActivity(), LoginInterface.View {
 
     private fun checkLogin() {
         val email = inputLoginEmail.editText?.text.toString()
-        val password = inputLoginPasword.editText?.text.toString()
+        val password = inputLoginPassword.editText?.text.toString()
 
         val inputsValidatorUtils = InputsValidatorUtils(this@LoginActivity)
         val isValidatorEmail = inputsValidatorUtils.validateEmail(inputLoginEmail, email)
-        val isValidatorPassword = inputsValidatorUtils.validatePassword(inputLoginPasword, password)
+        val isValidatorPassword =
+            inputsValidatorUtils.validatePassword(inputLoginPassword, password)
 
         if (isValidatorEmail && isValidatorPassword) {
             val user = User(email, password)
