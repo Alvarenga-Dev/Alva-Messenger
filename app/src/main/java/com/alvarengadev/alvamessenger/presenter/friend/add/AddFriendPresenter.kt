@@ -2,7 +2,7 @@ package com.alvarengadev.alvamessenger.presenter.friend.add
 
 import com.alvarengadev.alvamessenger.data.domain.Friend
 import com.alvarengadev.alvamessenger.data.domain.User
-import com.alvarengadev.alvamessenger.data.firebase.SettingsFirebase
+import com.alvarengadev.alvamessenger.data.firebase.settings.SettingsFirebase
 import com.alvarengadev.alvamessenger.utils.Base64Actions
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError

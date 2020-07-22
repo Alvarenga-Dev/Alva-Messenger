@@ -1,7 +1,7 @@
 package com.alvarengadev.alvamessenger.presenter.messages.list
 
 import com.alvarengadev.alvamessenger.data.domain.Message
-import com.alvarengadev.alvamessenger.data.firebase.SettingsFirebase
+import com.alvarengadev.alvamessenger.data.firebase.settings.SettingsFirebase
 import com.alvarengadev.alvamessenger.view.adapters.messages.ListMessagesAdapter
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError

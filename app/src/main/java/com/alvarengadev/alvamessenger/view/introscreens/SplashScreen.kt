@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.alvarengadev.alvamessenger.R
-import com.alvarengadev.alvamessenger.data.firebase.SettingsFirebase
+import com.alvarengadev.alvamessenger.data.firebase.settings.SettingsFirebase
 import com.alvarengadev.alvamessenger.view.activities.HomeActivity
 import com.alvarengadev.alvamessenger.view.activities.SignInActivity
 import com.alvarengadev.alvamessenger.utils.RoutesUtils

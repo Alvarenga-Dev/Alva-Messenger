@@ -1,7 +1,7 @@
 package com.alvarengadev.alvamessenger.presenter.user.register
 
 import com.alvarengadev.alvamessenger.data.domain.User
-import com.alvarengadev.alvamessenger.data.firebase.SettingsFirebase
+import com.alvarengadev.alvamessenger.data.firebase.settings.SettingsFirebase
 import com.alvarengadev.alvamessenger.utils.Base64Actions
 import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException

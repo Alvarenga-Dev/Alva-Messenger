@@ -1,7 +1,7 @@
 package com.alvarengadev.alvamessenger.presenter.friend.list
 
 import com.alvarengadev.alvamessenger.data.domain.Friend
-import com.alvarengadev.alvamessenger.data.firebase.SettingsFirebase
+import com.alvarengadev.alvamessenger.data.firebase.settings.SettingsFirebase
 import com.alvarengadev.alvamessenger.view.adapters.friends.ListFriendsAdapter
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError

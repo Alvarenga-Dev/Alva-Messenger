@@ -1,7 +1,7 @@
 package com.alvarengadev.alvamessenger.presenter.chat.save
 
 import com.alvarengadev.alvamessenger.data.domain.Chat
-import com.alvarengadev.alvamessenger.data.firebase.SettingsFirebase
+import com.alvarengadev.alvamessenger.data.firebase.settings.SettingsFirebase
 
 class SaveChatPresenter {
 
