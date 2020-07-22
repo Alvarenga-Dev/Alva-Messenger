@@ -23,6 +23,11 @@
         <item name="android:textSize">@dimen/text_size_minimum_smartphones</item>
     </style>
 
+    <style name="MinimumTextStyle">
+        <item name="android:textColor">#B31E1E1E</item>
+        <item name="android:textSize">@dimen/text_size_minimum_smartphones</item>
+    </style>
+
     <style name="DrawerTextStyle">
         <item name="android:textColor">@color/colorTitle</item>
         <item name="android:textSize">@dimen/text_size_normal_smartphones</item>
