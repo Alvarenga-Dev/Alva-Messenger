@@ -7,7 +7,6 @@
     app:behavior_peekHeight="0dp"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
-
     <TextView
         android:id="@+id/tv_title_bottom_sheet"
         style="@style/TitleStyle"
