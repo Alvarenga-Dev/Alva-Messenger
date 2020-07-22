@@ -2,11 +2,11 @@
 <resources>
     <color name="colorPrimary">#0066FF</color>
     <color name="colorPrimaryDark">#171717</color>
+    <color name="colorLight">#F1F1F1</color>
     <color name="colorAccent">#0066FF</color>
     <color name="colorError">#DB0545</color>
     <color name="colorTitle">#F1F1F1</color>
     <color name="colorSmallText">#E6F1F1F1</color>
-    <!--color name="colorSubTitles">#D8F1F1F1</color -->
     <color name="colorText">#F1F1F1</color>
     <color name="colorHintChat">#B2F1F1F1</color>
 
