@@ -5,19 +5,24 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.alvarengadev.alvamessenger.R
+import com.alvarengadev.alvamessenger.presenter.user.profile.ProfileInterface
+import com.alvarengadev.alvamessenger.presenter.user.profile.ProfilePresenter
 import com.alvarengadev.alvamessenger.utils.Constants
 import com.alvarengadev.alvamessenger.utils.MyPermissions
+import com.alvarengadev.alvamessenger.utils.PreferencesUtils
 import com.alvarengadev.alvamessenger.view.bottomsheet.BottomSheetInterface
 import com.alvarengadev.alvamessenger.view.bottomsheet.ProfileBottomSheet
 import kotlinx.android.synthetic.main.activity_profile.*
+import java.io.ByteArrayOutputStream
 
-class ProfileActivity : AppCompatActivity(), BottomSheetInterface {
+class ProfileActivity : AppCompatActivity(), BottomSheetInterface, ProfileInterface.View {
 
     private lateinit var profileBottomSheet: ProfileBottomSheet
     private val myPermissions = arrayOf(
@@ -68,6 +73,18 @@ class ProfileActivity : AppCompatActivity(), BottomSheetInterface {
                 } as Bitmap
                 iv_user_photo.setImageBitmap(bitmap)
             }
+
+            val bitmap = (iv_user_photo.drawable as BitmapDrawable).bitmap
+            val byteArrayOutputStream = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 70, byteArrayOutputStream)
+            val byteDataImage = byteArrayOutputStream.toByteArray()
+
+            val preferences = PreferencesUtils(this@ProfileActivity)
+            val id = preferences.getUserKey()!!
+
+            val profilePresenter = ProfilePresenter(this)
+            profilePresenter.saveImageProfile(id, byteDataImage)
+
             profileBottomSheet.closeDialog()
         }
     }
@@ -101,4 +118,7 @@ class ProfileActivity : AppCompatActivity(), BottomSheetInterface {
         }
 
     }
+
+    override fun toastMessage(message: String) =
+        Toast.makeText(this@ProfileActivity, message, Toast.LENGTH_SHORT).show()
 }
