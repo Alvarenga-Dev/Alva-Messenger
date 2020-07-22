@@ -1,11 +1,6 @@
-<h2 align="center">Alva Messenger</h2>
+#Alva Messenger
 
-<p>O Alva Messenger é um app de mensagens!</p>
-
-<div align="center">
-[![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![License](https://img.shields.io/badge/license-GNU-blue.svg)](/LICENSE)
-</div>
+O Alva Messenger é um app de mensagens!
 
 ## ⛏️ Construído com
 
