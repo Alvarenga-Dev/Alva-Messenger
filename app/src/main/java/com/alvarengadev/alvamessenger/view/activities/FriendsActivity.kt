@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.activity_friends.*
 class FriendsActivity : AppCompatActivity(), ListFriendInterface.View, FriendItemClick {
 
     private lateinit var listFriendPresenter: ListFriendPresenter
+    private val context = this@FriendsActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +36,7 @@ class FriendsActivity : AppCompatActivity(), ListFriendInterface.View, FriendIte
             layoutManager = LinearLayoutManager(context)
             adapter = friendAdapter
         }
-        friendAdapter.setOnClickListener(this)
+        friendAdapter.setOnClickListener(context)
     }
 
     private fun openDialog() = AddFriendsDialog().show(supportFragmentManager, "Add Friends Dialog")
@@ -54,10 +55,10 @@ class FriendsActivity : AppCompatActivity(), ListFriendInterface.View, FriendIte
         listFriendPresenter.stopGetFriends()
     }
 
-    override fun userKey(): String? = PreferencesUtils(this@FriendsActivity).getUserKey()
+    override fun userKey(): String? = PreferencesUtils(context).getUserKey()
 
     override fun itemClick(friend: Friend) {
-        val intent = Intent(this@FriendsActivity, MessagesActivity::class.java)
+        val intent = Intent(context, MessagesActivity::class.java)
         intent.putExtra(Constants.FRIEND_NAME, friend.name)
         intent.putExtra(Constants.FRIEND_EMAIL, friend.email)
         startActivity(intent)
