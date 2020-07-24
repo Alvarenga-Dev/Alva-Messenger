@@ -15,6 +15,8 @@ import kotlinx.android.synthetic.main.activity_sign_up.*
 
 class SignUpActivity : AppCompatActivity(), RegisterUserInterface.View {
 
+    private val context = this@SignUpActivity
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
@@ -28,7 +30,7 @@ class SignUpActivity : AppCompatActivity(), RegisterUserInterface.View {
         val email = inputSignUpEmail.editText?.text.toString()
         val password = inputSignUpPassword.editText?.text.toString()
 
-        val inputsValidatorUtils = InputsValidatorUtils(this@SignUpActivity)
+        val inputsValidatorUtils = InputsValidatorUtils(context)
         val isValidatorName = inputsValidatorUtils.validateName(inputSignUpName, name)
         val isValidatorEmail = inputsValidatorUtils.validateEmail(inputSignUpEmail, email)
         val isValidatorPassword =
@@ -42,14 +44,11 @@ class SignUpActivity : AppCompatActivity(), RegisterUserInterface.View {
     }
 
     override fun saveUser(user: User) =
-        PreferencesUtils(this@SignUpActivity).saveUserDatas(
-            Base64Actions.encodeBase64(user.email),
-            user.name
-        )
+        PreferencesUtils(context).saveUserDatas(Base64Actions.encodeBase64(user.email), user.name)
 
     override fun registerSuccess(register: Boolean) {
         if (register) {
-            startActivity(RoutesUtils.routes(applicationContext, HomeActivity::class.java))
+            startActivity(RoutesUtils.routes(context, HomeActivity::class.java))
             finish()
         }
     }
