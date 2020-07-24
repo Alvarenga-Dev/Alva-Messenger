@@ -12,6 +12,7 @@ import com.alvarengadev.alvamessenger.R
 import com.alvarengadev.alvamessenger.data.domain.Chat
 import com.alvarengadev.alvamessenger.presenter.chat.list.ListChatInterface
 import com.alvarengadev.alvamessenger.presenter.chat.list.ListChatPresenter
+import com.alvarengadev.alvamessenger.presenter.user.logout.LogoutInterface
 import com.alvarengadev.alvamessenger.presenter.user.logout.LogoutPresenter
 import com.alvarengadev.alvamessenger.utils.Base64Actions
 import com.alvarengadev.alvamessenger.utils.Constants
@@ -25,15 +26,17 @@ import kotlinx.android.synthetic.main.content_home.*
 
 class HomeActivity : AppCompatActivity(), View.OnClickListener,
     NavigationView.OnNavigationItemSelectedListener,
-    ListChatInterface.View, ChatItemClick {
+    ListChatInterface.View, ChatItemClick, LogoutInterface.View {
 
     private lateinit var listChatsPresenter: ListChatPresenter
+    private lateinit var logoutPresenter: LogoutPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
         listChatsPresenter = ListChatPresenter(this)
+        logoutPresenter = LogoutPresenter(this)
         initDrawer()
         initListChats()
         fabFriends.setOnClickListener(this)
@@ -93,11 +96,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener,
                 true
             }
             R.id.menuLogout -> {
-                LogoutPresenter.signOut()
-                PreferencesUtils(this@HomeActivity).saveUserDatas("", "")
-                listChatsPresenter.stopGetChats()
-                startActivity(RoutesUtils.routes(applicationContext, SignInActivity::class.java))
-                finish()
+                logoutPresenter.signOut()
                 true
             }
             else -> {
@@ -114,4 +113,11 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener,
     }
 
     override fun userKey(): String? = PreferencesUtils(this@HomeActivity).getUserKey()
+
+    override fun removeUser() {
+        PreferencesUtils(this@HomeActivity).saveUserDatas("", "")
+        listChatsPresenter.stopGetChats()
+        startActivity(RoutesUtils.routes(applicationContext, SignInActivity::class.java))
+        finish()
+    }
 }
