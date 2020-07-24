@@ -6,7 +6,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
-abstract class SettingsFirebase{
+class SettingsFirebase {
     companion object {
         val databaseReference: DatabaseReference = FirebaseDatabase.getInstance().reference
         val authReference: FirebaseAuth = FirebaseAuth.getInstance()
