@@ -12,6 +12,8 @@ import kotlinx.android.synthetic.main.activity_sign_in.*
 
 class SignInActivity : AppCompatActivity(){
 
+    private val context = this@SignInActivity
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
@@ -37,6 +39,6 @@ class SignInActivity : AppCompatActivity(){
     }
 
     private fun startRouter(destiny: Class<*>) {
-        startActivity(RoutesUtils.routes(this@SignInActivity, destiny))
+        startActivity(RoutesUtils.routes(context, destiny))
     }
 }
