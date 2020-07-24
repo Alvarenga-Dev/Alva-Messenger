@@ -30,6 +30,7 @@ class ProfileActivity : AppCompatActivity(), BottomSheetInterface, ProfileInterf
         Manifest.permission.WRITE_EXTERNAL_STORAGE,
         Manifest.permission.CAMERA
     )
+    private val context = this@ProfileActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +45,7 @@ class ProfileActivity : AppCompatActivity(), BottomSheetInterface, ProfileInterf
         fab_change_photo.setOnClickListener(onClickOpenBottomSheet())
 
     private fun initBottomSheet() {
-        profileBottomSheet = ProfileBottomSheet(this@ProfileActivity, this)
+        profileBottomSheet = ProfileBottomSheet(context, this)
         profileBottomSheet.onCreateView()
     }
 
@@ -52,13 +53,12 @@ class ProfileActivity : AppCompatActivity(), BottomSheetInterface, ProfileInterf
         profileBottomSheet.showDialog()
     }
 
-    private fun initPermissions() {
+    private fun initPermissions() =
         MyPermissions.validatePermissions(
-            this@ProfileActivity,
+            context,
             myPermissions,
             Constants.REQUEST_PERMISSION_ENABLE
         )
-    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -79,7 +79,7 @@ class ProfileActivity : AppCompatActivity(), BottomSheetInterface, ProfileInterf
             bitmap.compress(Bitmap.CompressFormat.JPEG, 70, byteArrayOutputStream)
             val byteDataImage = byteArrayOutputStream.toByteArray()
 
-            val preferences = PreferencesUtils(this@ProfileActivity)
+            val preferences = PreferencesUtils(context)
             val id = preferences.getUserKey()!!
 
             val profilePresenter = ProfilePresenter(this)
@@ -105,20 +105,14 @@ class ProfileActivity : AppCompatActivity(), BottomSheetInterface, ProfileInterf
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
-
         for (resultPermission in grantResults) {
             if (resultPermission == PackageManager.PERMISSION_DENIED) {
-                Toast.makeText(
-                    this@ProfileActivity,
-                    "Você precisa dar as permissões",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(context, "Você precisa dar as permissões", Toast.LENGTH_SHORT).show()
                 finish()
             }
         }
-
     }
 
     override fun toastMessage(message: String) =
-        Toast.makeText(this@ProfileActivity, message, Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
 }
