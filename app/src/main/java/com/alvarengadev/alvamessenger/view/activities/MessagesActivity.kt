@@ -20,6 +20,7 @@ class MessagesActivity : AppCompatActivity(), ListMessagesInterface.View {
 
     private lateinit var listMessagesPresenter: ListMessagesPresenter
     private lateinit var emailFriend: String
+    private val context = this@MessagesActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +28,7 @@ class MessagesActivity : AppCompatActivity(), ListMessagesInterface.View {
 
         val bundle = intent.extras!!
 
-        listMessagesPresenter = ListMessagesPresenter(this)
+        listMessagesPresenter = ListMessagesPresenter(context)
         emailFriend = bundle.getString(Constants.FRIEND_EMAIL, "")
         val nameFriend = bundle.getString(Constants.FRIEND_NAME, "")
 
@@ -41,18 +42,18 @@ class MessagesActivity : AppCompatActivity(), ListMessagesInterface.View {
     private fun initListMessages() {
         rcyChat.apply {
             hasFixedSize()
-            layoutManager = LinearLayoutManager(this@MessagesActivity)
+            layoutManager = LinearLayoutManager(context)
             adapter = listMessagesPresenter.getAdapter()
         }
     }
 
     private fun sendMessage(nameFriend: String?, friendEmail: String?, message: String) {
-        val preferences = PreferencesUtils(this)
+        val preferences = PreferencesUtils(context)
         val idUser = preferences.getUserKey()
         val nameUser = preferences.getUserName()
 
         val idFriend = Base64Actions.encodeBase64(friendEmail!!)
-        val saveMessage = SaveMessagePresenter(this@MessagesActivity)
+        val saveMessage = SaveMessagePresenter(context)
 
         if (message.trim().isNotEmpty()) {
 
@@ -60,25 +61,17 @@ class MessagesActivity : AppCompatActivity(), ListMessagesInterface.View {
             val isSaveMessageFriend = saveMessage.save(idFriend, idUser, message)
 
             if (!isSaveMessageFriend && !isSaveMessageUser) {
-                Toast.makeText(
-                    this@MessagesActivity,
-                    "Erro ao salvar a mensagem",
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(context, "Erro ao salvar a mensagem", Toast.LENGTH_SHORT).show()
             } else {
                 val chatUser = Chat(idFriend, nameFriend!!, message)
                 val chatFriend = Chat(idUser, nameUser!!, message)
                 val isSaveChatUser = saveChat(idUser, idFriend, chatUser)
                 val isSaveChatFriend = saveChat(idFriend, idUser, chatFriend)
 
-                if (!isSaveChatUser && !isSaveChatFriend) Toast.makeText(
-                    this@MessagesActivity,
-                    "Erro ao salvar a mensagem",
-                    Toast.LENGTH_SHORT
-                ).show()
+                if (!isSaveChatUser && !isSaveChatFriend)
+                    Toast.makeText(context, "Erro ao salvar a mensagem", Toast.LENGTH_SHORT).show()
             }
         }
-
         etMessage.setText("")
     }
 
@@ -93,7 +86,7 @@ class MessagesActivity : AppCompatActivity(), ListMessagesInterface.View {
     }
 
     private fun returnHome() {
-        startActivity(RoutesUtils.routes(this@MessagesActivity, HomeActivity::class.java))
+        startActivity(RoutesUtils.routes(context, HomeActivity::class.java))
         finish()
     }
 
@@ -102,12 +95,12 @@ class MessagesActivity : AppCompatActivity(), ListMessagesInterface.View {
         returnHome()
     }
 
-    override fun userKey(): String? = PreferencesUtils(this@MessagesActivity).getUserKey()
+    override fun userKey(): String? = PreferencesUtils(context).getUserKey()
 
     override fun friendKey(): String? = Base64Actions.encodeBase64(emailFriend)
 
     override fun error(message: String) =
-        Toast.makeText(this@MessagesActivity, message, Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
 
     override fun onStop() {
         super.onStop()
