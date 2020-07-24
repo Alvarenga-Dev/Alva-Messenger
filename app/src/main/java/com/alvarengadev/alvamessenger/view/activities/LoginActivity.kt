@@ -16,12 +16,13 @@ import kotlinx.android.synthetic.main.activity_login.*
 class LoginActivity : AppCompatActivity(), LoginInterface.View {
 
     private lateinit var loginPresenter: LoginPresenter
+    private val context = this@LoginActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        loginPresenter = LoginPresenter(this)
+        loginPresenter = LoginPresenter(context)
         buttonLogin.setOnClickListener { checkLogin() }
     }
 
@@ -29,7 +30,7 @@ class LoginActivity : AppCompatActivity(), LoginInterface.View {
         val email = inputLoginEmail.editText?.text.toString()
         val password = inputLoginPassword.editText?.text.toString()
 
-        val inputsValidatorUtils = InputsValidatorUtils(this@LoginActivity)
+        val inputsValidatorUtils = InputsValidatorUtils(context)
         val isValidatorEmail = inputsValidatorUtils.validateEmail(inputLoginEmail, email)
         val isValidatorPassword =
             inputsValidatorUtils.validatePassword(inputLoginPassword, password)
@@ -43,7 +44,7 @@ class LoginActivity : AppCompatActivity(), LoginInterface.View {
 
     override fun loginSuccess(isLogin: Boolean) {
         if (isLogin) {
-            startActivity(RoutesUtils.routes(this@LoginActivity, HomeActivity::class.java))
+            startActivity(RoutesUtils.routes(context, HomeActivity::class.java))
             finish()
         }
     }
@@ -52,7 +53,7 @@ class LoginActivity : AppCompatActivity(), LoginInterface.View {
         Snackbar.make(container_login, message, Snackbar.LENGTH_SHORT).show()
 
     override fun saveUser(user: User) =
-        PreferencesUtils(this@LoginActivity).saveUserDatas(
+        PreferencesUtils(context).saveUserDatas(
             Base64Actions.encodeBase64(user.email),
             user.name
         )
