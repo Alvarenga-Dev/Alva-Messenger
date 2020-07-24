@@ -1,36 +1,28 @@
 package com.alvarengadev.alvamessenger.presenter.user.login
 
 import com.alvarengadev.alvamessenger.data.domain.User
-import com.alvarengadev.alvamessenger.data.firebase.settings.SettingsFirebase
-import com.alvarengadev.alvamessenger.utils.Base64Actions
+import com.alvarengadev.alvamessenger.data.firebase.database.user.FirebaseUserLogin
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 
-class LoginPresenter(private val view: LoginInterface.View, private val user: User) :
+class LoginPresenter(private val view: LoginInterface.View) :
     ValueEventListener,
     LoginInterface.Presenter {
 
-    override fun login() {
-        val auth = SettingsFirebase.authReference
+    override fun login(user: User) {
+        val firebaseUserLogin = FirebaseUserLogin(this)
 
-        auth.signInWithEmailAndPassword(user.email, user.password).addOnCompleteListener { task ->
-
-            if (task.isSuccessful) {
-                SettingsFirebase.databaseReference
-                    .child("Users")
-                    .child(Base64Actions.encodeBase64(user.email))
-                    .addListenerForSingleValueEvent(this@LoginPresenter)
-            } else {
+        firebaseUserLogin.login(user)
+            .addOnFailureListener {
                 view.loginSuccess(false)
                 view.error("Login ou Senha inválidos!")
             }
-        }
     }
 
     override fun onDataChange(dataSnapshot: DataSnapshot) {
         val userData = dataSnapshot.getValue(User::class.java)!!
-        view.saveUser(userData.name, userData.email)
+        view.saveUser(userData)
         view.loginSuccess(true)
     }
 

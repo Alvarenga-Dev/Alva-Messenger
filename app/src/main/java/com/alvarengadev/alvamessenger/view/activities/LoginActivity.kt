@@ -15,10 +15,13 @@ import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), LoginInterface.View {
 
+    private lateinit var loginPresenter: LoginPresenter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        loginPresenter = LoginPresenter(this)
         buttonLogin.setOnClickListener { checkLogin() }
     }
 
@@ -32,8 +35,9 @@ class LoginActivity : AppCompatActivity(), LoginInterface.View {
             inputsValidatorUtils.validatePassword(inputLoginPassword, password)
 
         if (isValidatorEmail && isValidatorPassword) {
-            val user = User(email, password)
-            LoginPresenter(this, user).login()
+            val id = Base64Actions.encodeBase64(email)
+            val user = User(id, email, password)
+            loginPresenter.login(user)
         }
     }
 
@@ -47,8 +51,9 @@ class LoginActivity : AppCompatActivity(), LoginInterface.View {
     override fun error(message: String) =
         Snackbar.make(container_login, message, Snackbar.LENGTH_SHORT).show()
 
-    override fun saveUser(name: String, email: String) {
-        val id = Base64Actions.encodeBase64(email)
-        PreferencesUtils(this@LoginActivity).saveUserDatas(id, name)
-    }
+    override fun saveUser(user: User) =
+        PreferencesUtils(this@LoginActivity).saveUserDatas(
+            Base64Actions.encodeBase64(user.email),
+            user.name
+        )
 }
