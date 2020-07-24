@@ -5,7 +5,7 @@ import com.alvarengadev.alvamessenger.data.domain.User
 interface RegisterUserInterface {
 
     interface View {
-        fun saveUser(id: String, name: String)
+        fun saveUser(user: User)
         fun registerSuccess(register: Boolean)
         fun error(message: String)
     }

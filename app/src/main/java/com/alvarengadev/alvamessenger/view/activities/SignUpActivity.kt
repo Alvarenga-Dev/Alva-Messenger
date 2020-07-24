@@ -6,6 +6,7 @@ import com.alvarengadev.alvamessenger.R
 import com.alvarengadev.alvamessenger.data.domain.User
 import com.alvarengadev.alvamessenger.presenter.user.register.RegisterUserInterface
 import com.alvarengadev.alvamessenger.presenter.user.register.RegisterUserPresenter
+import com.alvarengadev.alvamessenger.utils.Base64Actions
 import com.alvarengadev.alvamessenger.utils.InputsValidatorUtils
 import com.alvarengadev.alvamessenger.utils.PreferencesUtils
 import com.alvarengadev.alvamessenger.utils.RoutesUtils
@@ -34,13 +35,17 @@ class SignUpActivity : AppCompatActivity(), RegisterUserInterface.View {
             inputsValidatorUtils.validatePassword(inputSignUpPassword, password)
 
         if (isValidatorName && isValidatorEmail && isValidatorPassword) {
-            val user = User(name, email, password)
+            val id = Base64Actions.encodeBase64(email)
+            val user = User(id, name, email, password)
             RegisterUserPresenter(this).register(user)
         }
     }
 
-    override fun saveUser(id: String, name: String) =
-        PreferencesUtils(this@SignUpActivity).saveUserDatas(id, name)
+    override fun saveUser(user: User) =
+        PreferencesUtils(this@SignUpActivity).saveUserDatas(
+            Base64Actions.encodeBase64(user.email),
+            user.name
+        )
 
     override fun registerSuccess(register: Boolean) {
         if (register) {
