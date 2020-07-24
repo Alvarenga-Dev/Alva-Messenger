@@ -30,23 +30,24 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener,
 
     private lateinit var listChatsPresenter: ListChatPresenter
     private lateinit var logoutPresenter: LogoutPresenter
+    private val context = this@HomeActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        listChatsPresenter = ListChatPresenter(this)
-        logoutPresenter = LogoutPresenter(this)
+        listChatsPresenter = ListChatPresenter(context)
+        logoutPresenter = LogoutPresenter(context)
         initDrawer()
         initListChats()
-        fabFriends.setOnClickListener(this)
+        fabFriends.setOnClickListener(context)
     }
 
     private fun initListChats() {
         val listChatsAdapter = listChatsPresenter.getAdapter()
         rcyChats.apply {
             hasFixedSize()
-            layoutManager = LinearLayoutManager(this@HomeActivity)
+            layoutManager = LinearLayoutManager(context)
             adapter = listChatsAdapter
         }
 
@@ -66,10 +67,10 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener,
         drawerLayoutHome.addDrawerListener(actionBarDrawerToggle)
         actionBarDrawerToggle.syncState()
 
-        val viewHeader = HeaderNavigationDrawer(this@HomeActivity)
+        val viewHeader = HeaderNavigationDrawer(context)
         viewHeader.setView(navigationHome)
 
-        navigationHome.setNavigationItemSelectedListener(this)
+        navigationHome.setNavigationItemSelectedListener(context)
     }
 
     override fun onBackPressed() {
@@ -86,13 +87,13 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener,
     }
 
     override fun onClick(view: View) =
-        startActivity(RoutesUtils.routes(this@HomeActivity, FriendsActivity::class.java))
+        startActivity(RoutesUtils.routes(context, FriendsActivity::class.java))
 
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
         //Ponto a ser refatorado (Programação Procedural -> POO)
         return when (menuItem.itemId) {
             R.id.menuProfile -> {
-                startActivity(RoutesUtils.routes(applicationContext, ProfileActivity::class.java))
+                startActivity(RoutesUtils.routes(context, ProfileActivity::class.java))
                 true
             }
             R.id.menuLogout -> {
@@ -106,16 +107,17 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener,
     }
 
     override fun itemClick(chat: Chat) {
-        val intent = Intent(this@HomeActivity, MessagesActivity::class.java)
+        val intent = Intent(context, MessagesActivity::class.java)
         intent.putExtra(Constants.FRIEND_NAME, chat.name)
         intent.putExtra(Constants.FRIEND_EMAIL, Base64Actions.decodeBase64(chat.idUser))
         startActivity(intent)
     }
 
-    override fun userKey(): String? = PreferencesUtils(this@HomeActivity).getUserKey()
+    override fun userKey(): String? =
+        PreferencesUtils(context).getUserKey()
 
     override fun removeUser() {
-        PreferencesUtils(this@HomeActivity).saveUserDatas("", "")
+        PreferencesUtils(context).saveUserDatas("", "")
         listChatsPresenter.stopGetChats()
         startActivity(RoutesUtils.routes(applicationContext, SignInActivity::class.java))
         finish()
