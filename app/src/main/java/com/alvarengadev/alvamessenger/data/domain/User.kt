@@ -14,13 +14,15 @@ class User {
 
     constructor()
 
-    constructor(name: String, email: String, password: String) {
+    constructor(id: String, name: String, email: String, password: String) {
+        this.id = id
         this.name = name
         this.email = email
         this.password = password
     }
 
-    constructor(email: String, password: String) {
+    constructor(id: String, email: String, password: String) {
+        this.id = id
         this.email = email
         this.password = password
     }
