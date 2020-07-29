@@ -23,8 +23,8 @@ O Alva Messenger é um app de mensagens!
 
 **Lucas Alvarenga - Android Developer**
 
-- [@Alvarenga.dev](https://www.instagram.com/alvarenga.dev/)
 - Meu Portfólio: https://alvarengadev.firebaseapp.com
+- Instagram: [@Alvarenga.dev](https://www.instagram.com/alvarenga.dev/)
 - Github: [@Alvarenga-Dev](https://github.com/Alvarenga-Dev)
 
 ## Dá uma estrelinha! ⭐️
